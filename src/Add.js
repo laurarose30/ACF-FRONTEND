@@ -7,14 +7,15 @@ function Add(props) {
     e.preventDefault();
     cDisabled(true);
     let result;
-    if (props.currentAd) {
-      result = props.client.updateAd(
-        props.currentAd._id,
-        e.target.adName.value,
-        e.target.price.value
+    if (props.currentLesson) {
+      result = props.client.updateLesson(
+        props.currentLesson._id,
+        e.target.name.value,
+        e.target.equipment.value,
+        e.target.dress.value
       );
     } else {
-      result = props.client.addAd(e.target.adName.value, e.target.price.value);
+      result = props.client.addLesson(e.target.name.value, e.target.equipment.value, e.target.dress.value);
     }
     result
       .then(() => {
@@ -37,20 +38,28 @@ function Add(props) {
         Name: <br />
         <input
           type="text"
-          defaultValue={props.currentAd?.name}
-          name="adName"
+          defaultValue={props.currentLesson?.name}
+          name="name"
           disabled={disabled}
         />
         <br />
-        Price:
+        Equipment:
         <br />
         <input
           type="text"
-          defaultValue={props.currentAd?.price}
-          name="price"
+          defaultValue={props.currentLesson?.equipment}
+          name="equipment"
           disabled={disabled}
         />
         <br />
+        Dress:
+        <br/>
+        <input
+          type="text"
+          defaultValue={props.currentLesson?.price}
+          name="dress"
+          disabled={disabled}
+        />
         <br />
         <button type="submit" disabled={disabled}>
           {" "}

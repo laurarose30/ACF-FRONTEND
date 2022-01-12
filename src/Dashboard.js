@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import Add from "./Add";
 
 function Dashboard(props) {
-  const [ads, cAds] = useState([]);
+  const [lessons, cLessons] = useState([]);
   const [current, cCurrent] = useState(undefined);
 
   const refreshList = () => {
-    props.client.getAds().then((response) => cAds(response.data));
+    props.client.getLessons().then((response) => cLessons(response.data));
   };
 
-  const removeAdvert = (id) => {
-    props.client.removeAd(id).then(() => refreshList());
+  const removeLesson = (id) => {
+    props.client.removeLesson(id).then(() => refreshList());
   };
 
-  const updateAdvert = (ad) => {
-    cCurrent(ad);
+  const updateLesson = (lesson) => {
+    cCurrent(lesson);
   };
 
   useEffect(() => {
@@ -22,14 +22,15 @@ function Dashboard(props) {
   }, []);
 
   const buildrows = () => {
-    return ads.map((current) => {
+    return lessons.map((current) => {
       return (
         <tr key={current._id}>
           <td>{current.name}</td>
-          <td>£{current.price}</td>
+          <td>{current.equipment}</td>
+          <td>{current.dress}</td>
           <td>
-            <button onClick={() => removeAdvert(current._id)}> remove</button>
-            <button onClick={() => updateAdvert(current)}> update</button>
+            <button onClick={() => removeLesson(current._id)}> remove</button>
+            <button onClick={() => updateLesson(current)}> update</button>
           </td>
         </tr>
       );
@@ -43,8 +44,9 @@ function Dashboard(props) {
       <table>
         <thead>
           <tr>
-            <th>Advert Name</th>
-            <th>Price</th>
+            <th>Lesson:</th>
+            <th>Equipment</th>
+            <th>Dress</th>
           </tr>
         </thead>
         <tbody>{buildrows()}</tbody>
@@ -57,7 +59,7 @@ function Dashboard(props) {
           refreshList();
           cCurrent(undefined);
         }}
-        currentAd={current}
+        currentLesson={current}
       />
     </>
   );
