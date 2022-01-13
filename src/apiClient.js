@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:3001/";
+const url = "http://localhost:3002/";
 
 export class ApiClient {
   constructor(tokenProvider,logoutHandler){
@@ -36,23 +36,23 @@ export class ApiClient {
     });
   }
 
-  login(username,password) {
-    return this.apiCall("post",url + "auth/",{username: username, password:password});
+  login(userName,password) {
+    return this.apiCall("post",url + "auth/",{userName: userName, password:password});
   }
 
-  getAds() {
+  getLesson() {
     return this.authenticatedCall("get", url);
   }
 
-  addAd(name, price) {
-    return this.authenticatedCall("post", url, { name, price });
+  addLesson(Lesson, equipment, dress) {
+    return this.authenticatedCall("post", url, { Lesson, equipment, dress });
   }
 
-  removeAd(id) {
+  removeLesson(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateAd(id, name, price) {
-    return this.authenticatedCall("put", `${url}${id}`, { name, price });
+  updateLesson(id, Lesson, equipment, dress) {
+    return this.authenticatedCall("put", `${url}${id}`, { Lesson, equipment, dress });
   }
 }

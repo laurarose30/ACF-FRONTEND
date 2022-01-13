@@ -7,14 +7,15 @@ function Add(props) {
     e.preventDefault();
     cDisabled(true);
     let result;
-    if (props.currentAd) {
-      result = props.client.updateAd(
+    if (props.currentLesson) {
+      result = props.client.updateLesson(
         props.currentAd._id,
-        e.target.adName.value,
-        e.target.price.value
+        e.target.Lesson.value,
+        e.target.equipment.value,
+        e.target.dress
       );
     } else {
-      result = props.client.addAd(e.target.adName.value, e.target.price.value);
+      result = props.client.addLesson(e.target.Lesson.value, e.target.equipment.value, e.target.dress.value);
     }
     result
       .then(() => {
@@ -34,23 +35,31 @@ function Add(props) {
       <br />
 
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
-        Name: <br />
+        addLesson: <br />
         <input
           type="text"
-          defaultValue={props.currentAd?.name}
+          defaultValue={props.currentLesson?.Lesson}
           name="adName"
           disabled={disabled}
         />
         <br />
-        Price:
+        equipment:
         <br />
         <input
           type="text"
-          defaultValue={props.currentAd?.price}
+          defaultValue={props.currentLesson?.equipment}
           name="price"
           disabled={disabled}
         />
         <br />
+        dress:
+        <br />
+        <input
+          type="text"
+          defaultValue={props.currentLesson?.dress}
+          name="price"
+          disabled={disabled}
+          />
         <br />
         <button type="submit" disabled={disabled}>
           {" "}
