@@ -44,7 +44,7 @@ function Dashboard(props) {
       <table>
         <thead>
           <tr>
-            <th>Lesson:</th>
+            <th>Lesson</th>
             <th>Equipment</th>
             <th>Dress</th>
           </tr>

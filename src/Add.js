@@ -31,7 +31,7 @@ function Add(props) {
 
   return (
     <>
-      {props.currentAd ? "Update" : "Add"}
+      {props.currentLesson ? "Update" : "Add"}
       <br />
 
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
