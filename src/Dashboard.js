@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Add from "./Add";
+import { action, role } from "./constants";
+import hasPermission from "./permissions.js";
 
 function Dashboard(props) {
   const [lessons, cLessons] = useState([]);
@@ -29,9 +31,13 @@ function Dashboard(props) {
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>
+            {hasPermission (role, action.removeLesson)&& (
             <button onClick={() => removeLesson(current._id)}> remove</button>
+            )}
+            {hasPermission (role, action.updateLesson) && (
             <button onClick={() => updateLesson(current)}> update</button>
-          </td>
+            )}
+            </td>
         </tr>
       );
     });

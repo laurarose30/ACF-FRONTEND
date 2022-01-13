@@ -2,9 +2,10 @@ import axios from "axios";
 const url = "http://localhost:3002/";
 
 export class ApiClient {
-  constructor(tokenProvider,logoutHandler){
+  constructor(tokenProvider,logoutHandler, role){
     this.tokenProvider = tokenProvider;
     this.logoutHandler = logoutHandler;
+    this.role = role;
   }
 
 
@@ -36,8 +37,8 @@ export class ApiClient {
     });
   }
 
-  login(userName,password) {
-    return this.apiCall("post",url + "auth/",{userName: userName, password:password});
+  login(userName,password, role) {
+    return this.apiCall("post",url + "auth/",{userName: userName, password:password, role:role });
   }
 
   getLessons() {
