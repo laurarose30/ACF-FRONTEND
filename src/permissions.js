@@ -8,12 +8,10 @@ mappings.set (action.updateLesson, [role.admin]);
 
 
 function hasPermission(role, action) {
-  if (!role?.accessLevel) {
-    return false;
-  }
+ 
 
   if (mappings.has(action)) {
-    return mappings.get(action).includes(role.accessLevel);
+    return mappings.get(action).includes(role);
   }
 
   return false;

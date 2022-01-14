@@ -1,12 +1,18 @@
 import axios from "axios";
+import {action, role} from "./permissions"
 const url = "http://localhost:3002/";
 
 export class ApiClient {
-  constructor(tokenProvider,logoutHandler, role){
+  constructor(tokenProvider,newRole, logoutHandler){
     this.tokenProvider = tokenProvider;
     this.logoutHandler = logoutHandler;
-    this.role = role;
-  }
+    if (newRole =="admin"){
+      this.role=role.admin;
+    } else{
+    
+        this.role = role.cadet; 
+      }}
+        
 
 
   authenticatedCall(method,url,data){
@@ -45,15 +51,15 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  addLesson(name, equipment, dress) {
-    return this.authenticatedCall("post", url, { name, equipment,dress });
+  addLesson(lesson, equipment, dress) {
+    return this.authenticatedCall("post", url, { lesson, equipment,dress });
   }
 
   removeLesson(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateLesson(id, name, equipment, dress) {
-    return this.authenticatedCall("put", `${url}${id}`, { name, equipment, dress });
+  updateLesson(id, lesson, equipment, dress) {
+    return this.authenticatedCall("put", `${url}${id}`, { lesson, equipment, dress });
   }
 }

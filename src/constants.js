@@ -1,10 +1,10 @@
 
 const action = {
 
-    updatelesson: "updateLesson", 
-    getlessons: "getLessons",
-    removelesson: "removeLesson",
-    addlesson: "addLesson"
+    updateLesson: "updateLesson", 
+    getLessons: "getLessons",
+    removeLesson: "removeLesson",
+    addLesson: "addLesson"
 
 };
 

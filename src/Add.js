@@ -10,12 +10,12 @@ function Add(props) {
     if (props.currentLesson) {
       result = props.client.updateLesson(
         props.currentLesson._id,
-        e.target.name.value,
+        e.target.lesson.value,
         e.target.equipment.value,
         e.target.dress.value
       );
     } else {
-      result = props.client.addLesson(e.target.name.value, e.target.equipment.value, e.target.dress.value);
+      result = props.client.addLesson(e.target.lesson.value, e.target.equipment.value, e.target.dress.value);
     }
     result
       .then(() => {
@@ -38,8 +38,8 @@ function Add(props) {
         Name: <br />
         <input
           type="text"
-          defaultValue={props.currentLesson?.name}
-          name="name"
+          defaultValue={props.currentLesson?.lesson}
+          name="lesson"
           disabled={disabled}
         />
         <br />
@@ -56,7 +56,7 @@ function Add(props) {
         <br/>
         <input
           type="text"
-          defaultValue={props.currentLesson?.price}
+          defaultValue={props.currentLesson?.dress}
           name="dress"
           disabled={disabled}
         />

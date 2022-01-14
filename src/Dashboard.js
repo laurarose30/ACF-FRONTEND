@@ -27,14 +27,14 @@ function Dashboard(props) {
     return lessons.map((current) => {
       return (
         <tr key={current._id}>
-          <td>{current.name}</td>
+          <td>{current.lesson}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>
-            {hasPermission (role, action.removeLesson)&& (
+            {hasPermission (props.client.role, action.removeLesson)&& (
             <button onClick={() => removeLesson(current._id)}> remove</button>
             )}
-            {hasPermission (role, action.updateLesson) && (
+            {hasPermission (props.client.role, action.updateLesson) && (
             <button onClick={() => updateLesson(current)}> update</button>
             )}
             </td>
@@ -59,6 +59,7 @@ function Dashboard(props) {
       </table>
       <br />
       <br />
+      {hasPermission (props.client.role, action.addLesson)&& (
       <Add
         client={props.client}
         refreshList={() => {
@@ -67,6 +68,7 @@ function Dashboard(props) {
         }}
         currentLesson={current}
       />
+      )}
     </>
   );
 }
