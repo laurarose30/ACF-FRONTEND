@@ -1,11 +1,18 @@
 import axios from "axios";
+import {action, role} from "./permissions"
 const url = "http://localhost:3002/";
 
 export class ApiClient {
-  constructor(tokenProvider,logoutHandler){
+  constructor(tokenProvider,newRole, logoutHandler){
     this.tokenProvider = tokenProvider;
     this.logoutHandler = logoutHandler;
-  }
+    if (newRole =="admin"){
+      this.role=role.admin;
+    } else{
+    
+        this.role = role.cadet; 
+      }}
+        
 
 
   authenticatedCall(method,url,data){
@@ -36,23 +43,23 @@ export class ApiClient {
     });
   }
 
-  login(userName,password) {
-    return this.apiCall("post",url + "auth/",{userName: userName, password:password});
+  login(userName,password, role) {
+    return this.apiCall("post",url + "auth/",{userName: userName, password:password, role:role });
   }
 
   getLesson() {
     return this.authenticatedCall("get", url);
   }
 
-  addLesson(Lesson, equipment, dress) {
-    return this.authenticatedCall("post", url, { Lesson, equipment, dress });
+  addLesson(lesson, equipment, dress) {
+    return this.authenticatedCall("post", url, { lesson, equipment,dress });
   }
 
   removeLesson(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateLesson(id, Lesson, equipment, dress) {
-    return this.authenticatedCall("put", `${url}${id}`, { Lesson, equipment, dress });
+  updateLesson(id, lesson, equipment, dress) {
+    return this.authenticatedCall("put", `${url}${id}`, { lesson, equipment, dress });
   }
 }

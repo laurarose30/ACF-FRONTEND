@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Add from "./Add";
+import { action, role } from "./constants";
+import hasPermission from "./permissions.js";
 
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
@@ -25,13 +27,17 @@ function Dashboard(props) {
     return Lesson.map((current) => {
       return (
         <tr key={current._id}>
-          <td>{current.Lesson}</td>
+          <td>{current.lesson}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>
+            {hasPermission (props.client.role, action.removeLesson)&& (
             <button onClick={() => removeLesson(current._id)}> remove</button>
+            )}
+            {hasPermission (props.client.role, action.updateLesson) && (
             <button onClick={() => updateLesson(current)}> update</button>
-          </td>
+            )}
+            </td>
         </tr>
       );
     });
@@ -44,15 +50,16 @@ function Dashboard(props) {
       <table>
         <thead>
           <tr>
-            <th>Lesson Name</th>
-            <th>equipment</th>
-            <th>dress</th>
+            <th>Lesson</th>
+            <th>Equipment</th>
+            <th>Dress</th>
           </tr>
         </thead>
         <tbody>{buildrows()}</tbody>
       </table>
       <br />
       <br />
+      {hasPermission (props.client.role, action.addLesson)&& (
       <Add
         client={props.client}
         refreshList={() => {
@@ -61,6 +68,7 @@ function Dashboard(props) {
         }}
         currentLesson={current}
       />
+      )}
     </>
   );
 }

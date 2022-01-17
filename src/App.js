@@ -5,15 +5,16 @@ import Login from "./Login";
 
 function App() {
   const [token,changeToken] = useState(window.localStorage.getItem("token"));
-
+  const [role,changeRole] = useState("");
   const client = new ApiClient(
-    token,
+    token, role,
     () => logout()
   );
 
-  const login = (newToken) => {
+  const login = (newToken, newRole) => {
     window.localStorage.setItem("token",newToken);
     changeToken(newToken);
+    changeRole(newRole);
   }
   
   const logout = () => {
@@ -26,7 +27,7 @@ function App() {
       {token ? (
         <Dashboard client={client} />
       ) : (
-        <Login loggedIn={(token) => login(token)} client={client} />
+        <Login loggedIn={(token, role) => login(token, role)} client={client} />
       )
 
       }

@@ -9,13 +9,13 @@ function Add(props) {
     let result;
     if (props.currentLesson) {
       result = props.client.updateLesson(
-        props.currentAd._id,
-        e.target.Lesson.value,
+        props.currentLesson._id,
+        e.target.lesson.value,
         e.target.equipment.value,
         e.target.dress
       );
     } else {
-      result = props.client.addLesson(e.target.Lesson.value, e.target.equipment.value, e.target.dress.value);
+      result = props.client.addLesson(e.target.lesson.value, e.target.equipment.value, e.target.dress.value);
     }
     result
       .then(() => {
@@ -31,15 +31,15 @@ function Add(props) {
 
   return (
     <>
-      {props.currentAd ? "Update" : "Add"}
+      {props.currentLesson ? "Update" : "Add"}
       <br />
 
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
         addLesson: <br />
         <input
           type="text"
-          defaultValue={props.currentLesson?.Lesson}
-          name="adName"
+          defaultValue={props.currentLesson?.lesson}
+          name="lesson"
           disabled={disabled}
         />
         <br />
@@ -57,7 +57,7 @@ function Add(props) {
         <input
           type="text"
           defaultValue={props.currentLesson?.dress}
-          name="price"
+          name="dress"
           disabled={disabled}
           />
         <br />
