@@ -52,23 +52,23 @@ function Add(props) {
           disabled={disabled}
         />
         <br />
-        Equipment:
+        equipment:
         <br />
         <input
           type="text"
           defaultValue={props.currentLesson?.equipment}
-          name="equipment"
+          name="price"
           disabled={disabled}
         />
         <br />
-        Dress:
-        <br/>
+        dress:
+        <br />
         <input
           type="text"
           defaultValue={props.currentLesson?.dress}
           name="dress"
           disabled={disabled}
-        />
+          />
         <br />
         <button type="submit" disabled={disabled}>
           {" "}

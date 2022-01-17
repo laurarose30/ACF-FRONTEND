@@ -6,20 +6,20 @@ import Moment from "react-moment";
 
 
 function Dashboard(props) {
-  const [lessons, cLessons] = useState([]);
+  const [Lesson, cLesson] = useState([]);
   const [current, cCurrent] = useState(undefined);
   
 
   const refreshList = () => {
-    props.client.getLessons().then((response) => cLessons(response.data));
+    props.client.getLesson().then((response) => cLesson(response.data));
   };
 
   const removeLesson = (id) => {
     props.client.removeLesson(id).then(() => refreshList());
   };
 
-  const updateLesson = (lesson) => {
-    cCurrent(lesson);
+  const updateLesson = (Lesson) => {
+    cCurrent(Lesson);
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Dashboard(props) {
 
 
   const buildrows = () => {
-    return lessons.map((current) => {
+    return Lesson.map((current) => {
       return (
         <tr key={current._id}>
           <td><Moment format="dd-MM-yyyy">{current.date}</Moment></td>
