@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import Add from "./Add";
 import { action, role } from "./constants";
 import hasPermission from "./permissions.js";
+import Moment from "react-moment";
+
 
 function Dashboard(props) {
   const [lessons, cLessons] = useState([]);
   const [current, cCurrent] = useState(undefined);
+  
 
   const refreshList = () => {
     props.client.getLessons().then((response) => cLessons(response.data));
@@ -23,10 +26,12 @@ function Dashboard(props) {
     refreshList();
   }, []);
 
+
   const buildrows = () => {
     return lessons.map((current) => {
       return (
         <tr key={current._id}>
+          <td><Moment format="dd-MM-yyyy">{current.date}</Moment></td>
           <td>{current.lesson}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
@@ -37,6 +42,7 @@ function Dashboard(props) {
             {hasPermission (props.client.role, action.updateLesson) && (
             <button onClick={() => updateLesson(current)}> update</button>
             )}
+            
             </td>
         </tr>
       );
@@ -45,11 +51,14 @@ function Dashboard(props) {
 
   return (
     <>
-      Dashboard
+    <button onClick={props.logout}>Logout</button>
+    <br/>
+      Cadet Lessons
       <br />
       <table>
         <thead>
           <tr>
+            <th>Date</th>
             <th>Lesson</th>
             <th>Equipment</th>
             <th>Dress</th>

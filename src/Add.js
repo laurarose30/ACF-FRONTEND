@@ -12,10 +12,11 @@ function Add(props) {
         props.currentLesson._id,
         e.target.lesson.value,
         e.target.equipment.value,
-        e.target.dress.value
+        e.target.dress.value,
+        e.target.date.value
       );
     } else {
-      result = props.client.addLesson(e.target.lesson.value, e.target.equipment.value, e.target.dress.value);
+      result = props.client.addLesson(e.target.lesson.value, e.target.equipment.value, e.target.dress.value, e.target.date.value);
     }
     result
       .then(() => {
@@ -35,6 +36,14 @@ function Add(props) {
       <br />
 
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
+        Date:<br/>
+        <input
+        type="date"
+        defaultValue={props.currentLesson?.date}
+        name="date"
+        disabled={disabled}
+      />
+      
         Name: <br />
         <input
           type="text"

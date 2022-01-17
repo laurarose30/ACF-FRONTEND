@@ -3,6 +3,7 @@ import Dashboard from "./Dashboard";
 import { ApiClient } from "./apiClient";
 import Login from "./Login";
 
+
 function App() {
   const [token,changeToken] = useState(window.localStorage.getItem("token"));
   const [role,changeRole] = useState("");
@@ -19,17 +20,20 @@ function App() {
   
   const logout = () => {
     window.localStorage.removeItem("token");
+    changeRole("");
     changeToken(undefined);
   }
 
   return (
     <>
       {token ? (
-        <Dashboard client={client} />
+        <Dashboard client={client} 
+        logout={()=>logout()}
+        />
       ) : (
         <Login loggedIn={(token, role) => login(token, role)} client={client} />
       )
-
+      
       }
       
     </>

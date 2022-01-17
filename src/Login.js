@@ -31,7 +31,7 @@ function Login(props) {
       <form onSubmit={(e) => submitHandler(e)}>
         role
         <br/>
-        <input type="text" name="role" disabled={disabled} />
+        { <input type="text" name="role" disabled={disabled} /> }
         <br/>
 
         username
@@ -45,7 +45,7 @@ function Login(props) {
                 <br />
         <button type="submit" disabled={disabled}>
           {" "}
-          Submit{" "}
+          Login{" "}
         </button>
       </form>
     </>

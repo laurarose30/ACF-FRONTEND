@@ -47,6 +47,10 @@ export class ApiClient {
     return this.apiCall("post",url + "auth/",{userName: userName, password:password, role:role });
   }
 
+  logout(userName, password, role){
+    return this.apiCall("post",url + "auth/",{userName: userName, password:password, role:role });
+  }
+
   getLessons() {
     return this.authenticatedCall("get", url);
   }
