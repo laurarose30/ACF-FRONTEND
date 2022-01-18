@@ -17,6 +17,7 @@ function Add(props) {
       );
     } else {
       result = props.client.addLesson(e.target.lesson.value, e.target.equipment.value, e.target.dress.value, e.target.date.value);
+      console.log( e.target.lesson.value)
     }
     result
       .then(() => {
@@ -57,7 +58,7 @@ function Add(props) {
         <input
           type="text"
           defaultValue={props.currentLesson?.equipment}
-          name="price"
+          name="equipment"
           disabled={disabled}
         />
         <br />

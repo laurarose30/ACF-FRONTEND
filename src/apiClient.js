@@ -16,6 +16,7 @@ export class ApiClient {
 
 
   authenticatedCall(method,url,data){
+    console.log(url)
     return axios({
       method,
       url,
@@ -55,15 +56,18 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  addLesson(lesson, equipment, dress) {
-    return this.authenticatedCall("post", url, { lesson, equipment,dress });
+  addLesson(lesson, equipment, dress, date) {
+    return this.authenticatedCall("post", url, { lesson, equipment, dress, date });
   }
 
   removeLesson(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateLesson(id, lesson, equipment, dress) {
-    return this.authenticatedCall("put", `${url}${id}`, { lesson, equipment, dress });
+  updateLesson(id, lesson, equipment, dress, date) {
+    return this.authenticatedCall("put", `${url}${id}`, { lesson, equipment, dress, date });
+  }
+  findLesson( sLesson, sEquipment, sDress, dateMin, dateMax){
+    return this.authenticatedCall("post", `${url}lesson/search`, {sLesson, sEquipment, sDress, dateMin, dateMax });
   }
 }

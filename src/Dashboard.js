@@ -33,12 +33,12 @@ function Dashboard(props) {
   const clearFunction = () => {
     updateLesson(undefined)
   }
-  const refreshListFind = (location) => {
-    props.client.getLocation(location).then((response) => cLesson(response.data))
+  const refreshListFind = (equipment) => {
+    props.client.getEquipemnt(equipment).then((response) => cLesson(response.data))
   }
 
   const querySearch = (searchParams) => {
-    props.client.queryResult(searchParams).then((response) => changeSearch(response.data))
+    props.client.findLesson(searchParams).then((response) => changeSearch(response.data))
   }
   useEffect(() => {
     refreshList();
@@ -68,16 +68,18 @@ function Dashboard(props) {
   };
 
   const buildsearchrows = () => {
+  
     return search.map((current) => {
+    
       return (
         <tr key={current._id}>
           <td><Moment format="dd-MM-yyyy">{current.date}</Moment></td>
+         
             <td>{current.lesson}</td>
             <td>{current.equipment}</td>
             <td>{current.dress}</td>
           <td>
-            <button className="buttonUpdate" onClick={() => updateLesson(current)}> update</button>
-            <button className="buttonRemove" onClick={() => removeLesson(current._id)}> remove</button>
+          
           </td>
         </tr>
       );
