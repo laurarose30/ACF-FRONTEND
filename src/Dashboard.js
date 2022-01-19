@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Add from "./Add";
 import { action, role } from "./constants";
-import hasPermission from "./permissions.js";
+import hasPermission from "./permissions.js"
+import './Style.css'
 import Moment from "react-moment";
 // import { Row } from "react-bootstrap";
 // import { Col } from "react-bootstrap";
@@ -49,7 +50,7 @@ function Dashboard(props) {
     return Lesson.map((current) => {
       return (
         <tr key={current._id}>
-          <td><Moment format="dd-MM-yyyy">{current.date}</Moment></td>
+          <td><Moment format="DD-MM-yyyy">{current.date}</Moment></td>
           <td>{current.lesson}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
@@ -60,8 +61,7 @@ function Dashboard(props) {
             {hasPermission (props.client.role, action.updateLesson) && (
             <button onClick={() => updateLesson(current)}> update</button>
             )}
-            
-            </td>
+           </td>
         </tr>
       );
     });
@@ -73,25 +73,25 @@ function Dashboard(props) {
     
       return (
         <tr key={current._id}>
-          <td><Moment format="dd-MM-yyyy">{current.date}</Moment></td>
+          <td><Moment format="DD-MM-yyyy">{current.date}</Moment></td>
          
             <td>{current.lesson}</td>
             <td>{current.equipment}</td>
             <td>{current.dress}</td>
-          <td>
-          
-          </td>
         </tr>
       );
     });
   };
 
   return (
+    
     <>
+<div id='button'>
     <button onClick={props.logout}>Logout</button>
     <br/>
-      Cadet Lessons
-      <br />
+    </div>
+      
+      
       <table>
         <thead>
           <tr>
@@ -113,6 +113,7 @@ function Dashboard(props) {
           cCurrent(undefined);
         }}
         currentLesson={current}
+        
       />
 
       
@@ -136,7 +137,7 @@ function Dashboard(props) {
           querySearch = {querySearch}
           currentLesson={current}
         />
-      
+      <br/>
         <button className="see-less-btn" onClick={() => setShow2(!show2)}>See less</button>
         <button className="see-less-btn" onClick={() => refreshList()}>Clear Filtered List</button>
     

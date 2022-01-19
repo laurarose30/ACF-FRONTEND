@@ -10,7 +10,9 @@ const action = {
 
 const role = {
     cadet: "cadet",
-    admin: "admin"
+    admin: "admin",
+    parent:"parent",
+    instructor:"instructor"
 
 };
 

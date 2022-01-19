@@ -20,9 +20,18 @@ function Find(props) {
   };
   return (
     <>
+     
       <Container className="mx-auto formContainer">
         <h5 className="findHeader">Searching for:</h5>
         <br />
+        <style>{`
+   .form2{
+    color: #ffffff; 
+    background-color: #fc86ad; 
+     align-items:center;
+    padding: 1%
+    }
+  `}</style>
         <form
           className="form2"
           onSubmit={(e) => submitHandler(e)}

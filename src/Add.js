@@ -30,7 +30,9 @@ function Add(props) {
         cDisabled(false);
       });
   };
-
+  const makeDate = (date) => {
+    return date && new Date(date).toISOString().substr(0,16)
+  }
   return (
     <>
       {props.currentLesson ? "Update" : "Add"}
@@ -40,7 +42,7 @@ function Add(props) {
         Date:<br/>
         <input
         type="date"
-        defaultValue={props.currentLesson?.date}
+        defaultValue={makeDate(props.currentLesson?.date)}
         name="date"
         disabled={disabled}
       />

@@ -26,8 +26,17 @@ function Login(props) {
 
   return (
     <>
-      Login
+   <style>{`
+   form{
+    color: #ffffff; 
+    background-color: #fc86ad; 
+     align-items:center;
+    padding: 15%
+    }
+  `}</style>
+      Welcome to the ACF login page (if you do not have a login please speak to your Instructors)
       <br />
+      <br/>
       <form onSubmit={(e) => submitHandler(e)}>
         role
         <br/>
