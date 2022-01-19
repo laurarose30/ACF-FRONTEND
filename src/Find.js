@@ -28,8 +28,9 @@ function Find(props) {
    .form2{
     color: #ffffff; 
     background-color: #fc86ad; 
-     align-items:center;
+   
     padding: 1%
+    margin:0
     }
   `}</style>
         <form
@@ -63,6 +64,7 @@ function Find(props) {
             disabled={disabled}
             placeholder="Dress"
           />
+          <br/>
           First Date:
           <br />
           <input

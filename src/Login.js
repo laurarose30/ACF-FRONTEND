@@ -28,10 +28,9 @@ function Login(props) {
     <>
    <style>{`
    form{
-    color: #ffffff; 
-    background-color: #fc86ad; 
-     align-items:center;
-    padding: 15%
+    color: black; 
+    padding: 10%
+   
     }
   `}</style>
       Welcome to the ACF login page (if you do not have a login please speak to your Instructors)

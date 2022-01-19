@@ -23,7 +23,7 @@ function Add(props) {
       .then(() => {
         cDisabled(false);
         document.getElementById("addForm").reset();
-        props.refreshList();
+        return props.refreshList();
       })
       .catch(() => {
         alert("an error occured, please try again");

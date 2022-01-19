@@ -4,10 +4,10 @@ import { action, role } from "./constants";
 import hasPermission from "./permissions.js"
 import './Style.css'
 import Moment from "react-moment";
-// import { Row } from "react-bootstrap";
-// import { Col } from "react-bootstrap";
 import Find from "./Find";
-// import { Table } from "react-bootstrap";
+// import { Navbar.Brand } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 
 function Dashboard(props) {
@@ -34,8 +34,8 @@ function Dashboard(props) {
   const clearFunction = () => {
     updateLesson(undefined)
   }
-  const refreshListFind = (equipment) => {
-    props.client.getEquipemnt(equipment).then((response) => cLesson(response.data))
+  const refreshListFind = (lesson) => {
+    props.client.getLessons(lesson).then((response) => cLesson(response.data))
   }
 
   const querySearch = (searchParams) => {
@@ -86,6 +86,13 @@ function Dashboard(props) {
   return (
     
     <>
+    <style>{`
+   table{
+    color: black; 
+    padding: 1%;
+    margin:0
+        }
+  `}</style>
 <div id='button'>
     <button onClick={props.logout}>Logout</button>
     <br/>
@@ -116,9 +123,15 @@ function Dashboard(props) {
         
       />
 
-      
+    
       )}
-
+   <style>{`
+   table{
+    color: black; 
+    padding: 1%;
+    margin:0
+        }
+  `}</style>
 <table>
         <thead>
           <tr>
@@ -130,7 +143,9 @@ function Dashboard(props) {
         </thead>
         <tbody>{buildsearchrows()}</tbody>
       </table>
-
+      <>
+  
+</>
       <Find
           client={props.client}
           refreshListFind = {refreshListFind}
@@ -138,8 +153,8 @@ function Dashboard(props) {
           currentLesson={current}
         />
       <br/>
-        <button className="see-less-btn" onClick={() => setShow2(!show2)}>See less</button>
-        <button className="see-less-btn" onClick={() => refreshList()}>Clear Filtered List</button>
+        {/* <button className="see-less-btn" onClick={() => setShow2(!show2)}>See less</button>
+        <button className="see-less-btn" onClick={() => refreshList()}>Clear Filtered List</button> */}
     
         
         </>
