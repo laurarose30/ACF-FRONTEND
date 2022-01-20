@@ -11,12 +11,13 @@ function Add(props) {
       result = props.client.updateLesson(
         props.currentLesson._id,
         e.target.lesson.value,
+        e.target.level.value,
         e.target.equipment.value,
         e.target.dress.value,
         e.target.date.value
       );
     } else {
-      result = props.client.addLesson(e.target.lesson.value, e.target.equipment.value, e.target.dress.value, e.target.date.value);
+      result = props.client.addLesson(e.target.lesson.value, e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value);
       console.log( e.target.lesson.value)
     }
     result
@@ -52,6 +53,15 @@ function Add(props) {
           type="text"
           defaultValue={props.currentLesson?.lesson}
           name="lesson"
+          disabled={disabled}
+        />
+        <br />
+        level:
+        <br />
+        <input
+          type="text"
+          defaultValue={props.currentLesson?.level}
+          name="level"
           disabled={disabled}
         />
         <br />

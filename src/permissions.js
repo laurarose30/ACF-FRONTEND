@@ -1,7 +1,7 @@
 import {action, role} from "./constants"
 
 const mappings = new Map ();
-mappings.set (action.getLessons, [role.cadet, role.admin, role.parent, role.instructor]);
+mappings.set (action.getLessons, [role.cadet, role.admin, role.parent, role.instructor, role.commander, role.tofficer]);
 mappings.set (action.addLesson, [role.admin]);
 mappings.set (action.removeLesson, [role.admin]);
 mappings.set (action.updateLesson, [role.admin]);

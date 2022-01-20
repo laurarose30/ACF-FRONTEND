@@ -52,6 +52,7 @@ function Dashboard(props) {
         <tr key={current._id}>
           <td><Moment format="DD-MM-yyyy">{current.date}</Moment></td>
           <td>{current.lesson}</td>
+          <td>{current.level}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>
@@ -76,6 +77,7 @@ function Dashboard(props) {
           <td><Moment format="DD-MM-yyyy">{current.date}</Moment></td>
          
             <td>{current.lesson}</td>
+            <td>{current.level}</td>
             <td>{current.equipment}</td>
             <td>{current.dress}</td>
         </tr>
@@ -104,6 +106,7 @@ function Dashboard(props) {
           <tr>
             <th>Date</th>
             <th>Lesson</th>
+            <th>Level</th>
             <th>Equipment</th>
             <th>Dress</th>
           </tr>
@@ -136,7 +139,8 @@ function Dashboard(props) {
         <thead>
           <tr>
             <th>Date</th>
-            <th>Lesson</th>
+            <th>Lesson</th> 
+            <th>Level</th>
             <th>Equipment</th>
             <th>Dress</th>
           </tr>

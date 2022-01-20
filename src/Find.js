@@ -10,6 +10,7 @@ function Find(props) {
     e.preventDefault();
     const searchParams = {
       sLesson: e.target.sLesson.value,
+      sLevel: e.target.sLevel.value,
       sEquipment: e.target.sEquipment.value,
       sDress: e.target.sDress.value,
       dateMin: e.target.dateMin.value,
@@ -45,6 +46,14 @@ function Find(props) {
             name="sLesson"
             disabled={disabled}
             placeholder="Lesson"
+          />
+           Level: <br />
+          <input
+            type="text"
+            defaultValue={props.currentLesson?.sLevel}
+            name="sLevel"
+            disabled={disabled}
+            placeholder="Level"
           />
           <br />
           Equipment: <br />

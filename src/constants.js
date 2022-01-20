@@ -12,7 +12,9 @@ const role = {
     cadet: "cadet",
     admin: "admin",
     parent:"parent",
-    instructor:"instructor"
+    instructor:"instructor",
+    commander: "commander",
+    tofficer:"tofficer"
 
 };
 
