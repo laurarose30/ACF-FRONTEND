@@ -153,8 +153,8 @@ function Dashboard(props) {
           currentLesson={current}
         />
       <br/>
-        {/* <button className="see-less-btn" onClick={() => setShow2(!show2)}>See less</button>
-        <button className="see-less-btn" onClick={() => refreshList()}>Clear Filtered List</button> */}
+         <button className="see-less-btn" onClick={() => setShow2(!show2)}>See less</button>
+        <button className="see-less-btn" onClick={() => querySearch({dateMax: new Date(0)})}>Clear Filtered List</button>
     
         
         </>
