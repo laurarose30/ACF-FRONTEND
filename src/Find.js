@@ -27,7 +27,7 @@ function Find(props) {
         <style>{`
    .form2{
     color: #ffffff; 
-    background-color: #fc86ad; 
+    background-color: hsl(120, 17%, 53%); 
    
     padding: 1%
     margin:0

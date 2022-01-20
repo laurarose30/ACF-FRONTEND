@@ -8,13 +8,14 @@
 
 
 table{
-    background-color: #FFFFFF;
-    color: black;
+    background-color: hsl(120, 17%, 53%);
+    color: rgb(253, 253, 253);
   text-align: center;
   border-spacing: 10px;
   margin-top: 10%;
-  border-left-color: black;
+  border-left-color: rgb(255, 255, 255);
   align-items: center;
+  
  }
 #button{
   margin-top: 1%;
@@ -22,19 +23,31 @@ table{
   justify-content: end;
 }
 
+th {
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+tr:nth-child(even)
+{
+  background-color: rgb(161, 197, 161);
+  color:rgb(0, 0, 0);
+}
+
 button {
-  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+
   border: 0;
-  border-radius: 12px;
-  color: #FFFFFF;
+  border-radius: 7px;
+  color: #000000;
   cursor: pointer;
   
   font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 2.5;
+  line-height: 2.3;
   outline: transparent;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+  margin-left: 1.5px;
+  margin-right: 1.5px;
   text-align: center;
   text-decoration: none;
   transition: box-shadow .2s ease-in-out;
@@ -45,9 +58,9 @@ button {
 }
 
 button:not([disabled]):focus {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(53, 54, 53, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
 button:not([disabled]):hover {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(82, 82, 82, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
