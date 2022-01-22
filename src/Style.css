@@ -35,6 +35,11 @@ table {
   margin-top: 10%;
   border-left-color: rgb(255, 255, 255);
   align-items: center;
+  border-radius: 15px;
+}
+form{
+  border-radius: 15px;
+  padding:2%
 }
 #button {
   margin-top: 1%;
