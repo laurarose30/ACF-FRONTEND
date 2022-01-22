@@ -8,6 +8,8 @@ import Find from "./Find";
 // import { Navbar.Brand } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+import filter from "./Filter";
+
 
 
 function Dashboard(props) {
@@ -37,10 +39,11 @@ function Dashboard(props) {
   const refreshListFind = (lesson) => {
     props.client.getLessons(lesson).then((response) => cLesson(response.data))
   }
-
+  
   const querySearch = (searchParams) => {
     props.client.findLesson(searchParams).then((response) => changeSearch(response.data))
   }
+  
   useEffect(() => {
     refreshList();
   }, []);
@@ -50,12 +53,14 @@ function Dashboard(props) {
     return Lesson.map((current) => {
       return (
         <tr key={current._id}>
+          
           <td><Moment format="DD-MM-yyyy">{current.date}</Moment></td>
           <td>{current.lesson}</td>
           <td>{current.level}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>
+        
             {hasPermission (props.client.role, action.removeLesson)&& (
             <button onClick={() => removeLesson(current._id)}> remove</button>
             )}
@@ -100,7 +105,7 @@ function Dashboard(props) {
     <br/>
     </div>
       
-      
+    <div className="dash">
       <table>
         <thead>
           <tr>
@@ -109,10 +114,12 @@ function Dashboard(props) {
             <th>Level</th>
             <th>Equipment</th>
             <th>Dress</th>
+            <tr></tr>
           </tr>
         </thead>
         <tbody>{buildrows()}</tbody>
-      </table>
+      </table> 
+      </div>  
       <br />
       <br />
       {hasPermission (props.client.role, action.addLesson)&& (
@@ -123,7 +130,7 @@ function Dashboard(props) {
           cCurrent(undefined);
         }}
         currentLesson={current}
-        
+     
       />
 
     
@@ -135,6 +142,7 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
+   <div className="dash">
 <table>
         <thead>
           <tr>
@@ -147,6 +155,7 @@ function Dashboard(props) {
         </thead>
         <tbody>{buildsearchrows()}</tbody>
       </table>
+      </div>
       <>
   
 </>

@@ -1,23 +1,42 @@
-
-/* body{
-  background-image: url('awesomelogo2.png') ;
+.log-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+.log-inner {
+  width: 450px;
+  margin: auto;
+  background-color: hsl(120, 17%, 53%);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+}
+.log {
+  background-image: url("awesomelogo2.png");
   background-repeat: no-repeat;
-  background-position: left,;
-  margin-left: 1%;
-}  */
+  background-position: 0%;
+  margin-top: 0%;
+}
+.dash {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
 
-
-table{
-    background-color: hsl(120, 17%, 53%);
-    color: rgb(253, 253, 253);
+table {
+  background-color: hsl(120, 17%, 53%);
+  color: rgb(253, 253, 253);
   text-align: center;
   border-spacing: 10px;
   margin-top: 10%;
   border-left-color: rgb(255, 255, 255);
   align-items: center;
-  
- }
-#button{
+}
+#button {
   margin-top: 1%;
   display: flex;
   justify-content: end;
@@ -27,21 +46,20 @@ th {
   border-bottom: 1px solid rgb(0, 0, 0);
 }
 
-tr:nth-child(even)
-{
+tr:nth-child(even) {
   background-color: rgb(161, 197, 161);
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 button {
-
   border: 0;
   border-radius: 7px;
   color: #000000;
   cursor: pointer;
-  
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size: 11px;
+
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: 13px;
   font-weight: 500;
   line-height: 2.3;
   outline: transparent;
@@ -50,7 +68,7 @@ button {
   margin-right: 1.5px;
   text-align: center;
   text-decoration: none;
-  transition: box-shadow .2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -58,9 +76,13 @@ button {
 }
 
 button:not([disabled]):focus {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(53, 54, 53, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(53, 54, 53, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
 button:not([disabled]):hover {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(82, 82, 82, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(82, 82, 82, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }

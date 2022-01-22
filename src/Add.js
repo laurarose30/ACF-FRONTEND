@@ -36,9 +36,19 @@ function Add(props) {
   }
   return (
     <>
-      {props.currentLesson ? "Update" : "Add"}
+      {props.currentLesson ? "Update" : "Add Lesson"}
       <br />
-
+      <br />
+      <style>{`
+   form{
+    color: #ffffff; 
+    background-color: hsl(120, 17%, 53%); 
+   
+    padding: 1%
+    margin:0
+    }
+  `}</style>
+   <div className="dash">
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
         Date:<br/>
         <input
@@ -47,8 +57,9 @@ function Add(props) {
         name="date"
         disabled={disabled}
       />
-      
-        Name: <br />
+      <br/>
+        Name: 
+        <br />
         <input
           type="text"
           defaultValue={props.currentLesson?.lesson}
@@ -88,6 +99,9 @@ function Add(props) {
           Submit{" "}
         </button>
       </form>
+      </div>
+      <br/>
+      <br/>
     </>
   );
 }

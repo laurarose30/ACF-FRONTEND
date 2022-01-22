@@ -26,21 +26,18 @@ function Login(props) {
 
   return (
     <>
-   <style>{`
-   form{
-    color: black; 
-    padding: 10%
-   
-    }
-  `}</style>
+      
       Welcome to the ACF login page (if you do not have a login please speak to your Instructors)
       <br />
       <br/>
-      <form onSubmit={(e) => submitHandler(e)}>
-        role
+      <div className="log">
+      <div className="log-wrapper">
+        <div className="log-inner">
+      <form id ="loginform" onSubmit={(e) => submitHandler(e)}>
+        Role
         <br/>
         { <input type="text" name="role" disabled={disabled} /> }
-        <br/>
+        <br/> 
 
         username
         <br />
@@ -56,6 +53,9 @@ function Login(props) {
           Login{" "}
         </button>
       </form>
+      </div>
+      </div>
+      </div>
     </>
   );
 }
