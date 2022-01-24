@@ -4,7 +4,6 @@ import "./App.css";
 
 function Find(props) {
   const [disabled, cDisabled] = useState(false);
- 
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -17,13 +16,13 @@ function Find(props) {
       dateMax: e.target.dateMax.value,
     };
     props.querySearch(searchParams);
-   
   };
   return (
     <>
-     
       <Container className="mx-auto formContainer">
-        <h5 className="findHeader">Searching for:</h5>
+        <br/>
+        Search Lessons:
+        <br/>
         <br />
         <style>{`
    .form2{
@@ -34,69 +33,72 @@ function Find(props) {
     margin:0
     }
   `}</style>
-        <form
-          className="form2"
-          onSubmit={(e) => submitHandler(e)}
-          id="findForm"
-        >
-          Lesson: <br />
-          <input
-            type="text"
-            defaultValue={props.currentLesson?.sLesson}
-            name="sLesson"
-            disabled={disabled}
-            placeholder="Lesson"
-          />
-           Level: <br />
-          <input
-            type="text"
-            defaultValue={props.currentLesson?.sLevel}
-            name="sLevel"
-            disabled={disabled}
-            placeholder="Level"
-          />
-          <br />
-          Equipment: <br />
-          <input
-            type="text"
-            defaultValue={props.currentLesson?.sEquipment}
-            name="sEquipment"
-            disabled={disabled}
-            placeholder="Equipment"
-          />
-          <br />
-          Dress: <br />
-          <input
-            type="text"
-            defaultValue={props.currentLesson?.sDress}
-            name="sDress"
-            disabled={disabled}
-            placeholder="Dress"
-          />
-          <br/>
-          First Date:
-          <br />
-          <input
-            type="date"
-            defaultValue={props.currentLesson?.dateMin}
-            name="dateMin"
-            disabled={disabled}
-          />
-          <br />
-          Last Date:
-          <br />
-          <input
-            type="date"
-            defaultValue={props.currentLesson?.dateMax}
-            name="dateMax"
-            disabled={disabled}
-          />
-          <br />
-          <button className="buttonSubmit" type="submit" disabled={disabled}>
-            {" "}
-            Search{" "}
-          </button>
-        </form>
+        <div className="dash">
+          <form
+            className="form2"
+            onSubmit={(e) => submitHandler(e)}
+            id="findForm"
+          >
+            Lesson: <br />
+            <input
+              type="text"
+              defaultValue={props.currentLesson?.sLesson}
+              name="sLesson"
+              disabled={disabled}
+              placeholder="Lesson"
+            />
+            <br />
+            Level: <br />
+            <input
+              type="text"
+              defaultValue={props.currentLesson?.sLevel}
+              name="sLevel"
+              disabled={disabled}
+              placeholder="Level"
+            />
+            <br />
+            Equipment: <br />
+            <input
+              type="text"
+              defaultValue={props.currentLesson?.sEquipment}
+              name="sEquipment"
+              disabled={disabled}
+              placeholder="Equipment"
+            />
+            <br />
+            Dress: <br />
+            <input
+              type="text"
+              defaultValue={props.currentLesson?.sDress}
+              name="sDress"
+              disabled={disabled}
+              placeholder="Dress"
+            />
+            <br />
+            First Date:
+            <br />
+            <input
+              type="date"
+              defaultValue={props.currentLesson?.dateMin}
+              name="dateMin"
+              disabled={disabled}
+            />
+            <br />
+            Last Date:
+            <br />
+            <input
+              type="date"
+              defaultValue={props.currentLesson?.dateMax}
+              name="dateMax"
+              disabled={disabled}
+            />
+            <br />
+            <button className="buttonSubmit" type="submit" disabled={disabled}>
+              {" "}
+              Search{" "}
+            </button>
+          </form>
+        </div>
       </Container>
     </>
   );
