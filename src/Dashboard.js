@@ -9,8 +9,6 @@ import Find from "./Find";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 
-
-
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
   const [search, changeSearch] = useState([]);
@@ -47,7 +45,6 @@ function Dashboard(props) {
 
     {
       id: "level",
-      
     },
     {
       id: "equipment",
@@ -71,10 +68,10 @@ function Dashboard(props) {
 
   const refreshList = () => {
     props.client.getLessons().then((response) => {
-      cLesson(response.data)
+      cLesson(response.data);
       let filteredLessons = filterDataByLevel(response.data);
       setFilteredLessons(filteredLessons);
-      console.log("Refresh List called")
+      console.log("Refresh List called");
     });
   };
 
@@ -159,30 +156,29 @@ function Dashboard(props) {
         <button onClick={props.logout}>Logout</button>
         <br />
       </div>
-        <div>
-      <table>
-        <thead>
-          <tr>
-            {headerOptions.map((header) => (
-              <th className={props.headerSection}>
-                {header.id}
-                {header.filterOptions && <div>{header.filterOptions()}</div>}
-              </th>
-            ))}
+      <div className="dash">
+        <table>
+          <thead>
+            <tr>
+              {headerOptions.map((header) => (
+                <th className={props.headerSection}>
+                  {header.id}
+                  {header.filterOptions && <div>{header.filterOptions()}</div>}
+                </th>
+              ))}
 
-            <select onChange={ (e) => setLevelFilter(e.target.value)}>
-              <option value="all">All stars</option>
-              <option value="basic">basic</option>
-              <option value="One Star">one star</option>
-              <option value="Two Star">two star</option>
-              <option value="Three Star">three star</option>
-
-            </select>
-          </tr>
-        </thead>
-        <tbody>{buildrows()}</tbody>
-      </table> 
-      </div>  
+              <select onChange={(e) => setLevelFilter(e.target.value)}>
+                <option value="all">All stars</option>
+                <option value="basic">basic</option>
+                <option value="One Star">one star</option>
+                <option value="Two Star">two star</option>
+                <option value="Three Star">three star</option>
+              </select>
+            </tr>
+          </thead>
+          <tbody>{buildrows()}</tbody>
+        </table>
+      </div>
       <br />
       <br />
       {hasPermission(props.client.role, action.addLesson) && (
@@ -191,7 +187,6 @@ function Dashboard(props) {
           refreshList={() => {
             refreshList();
             cCurrent(undefined);
-
           }}
           currentLesson={current}
         />
@@ -203,18 +198,20 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Lesson</th>
-            <th>Level</th>
-            <th>Equipment</th>
-            <th>Dress</th>
-          </tr>
-        </thead>
-        <tbody>{buildsearchrows()}</tbody>
-      </table>
+      <div className="dash">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Lesson</th>
+              <th>Level</th>
+              <th>Equipment</th>
+              <th>Dress</th>
+            </tr>
+          </thead>
+          <tbody>{buildsearchrows()}</tbody>
+        </table>
+      </div>
       <></>
       <Find
         client={props.client}
