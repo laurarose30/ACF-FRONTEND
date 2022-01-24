@@ -70,4 +70,8 @@ export class ApiClient {
   findLesson( sLesson, sLevel, sEquipment, sDress, dateMin, dateMax){
     return this.authenticatedCall("post", `${url}lesson/search`, {sLesson, sLevel, sEquipment, sDress, dateMin, dateMax });
   }
+
+  getFilteredLessons(level){
+    return this.authenticatedCall("get", url, {level});
+  }
 }

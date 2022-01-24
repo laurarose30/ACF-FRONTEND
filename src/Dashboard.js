@@ -8,7 +8,7 @@ import Find from "./Find";
 // import { Navbar.Brand } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-import filter from "./Filter";
+
 
 
 function Dashboard(props) {
@@ -70,7 +70,12 @@ function Dashboard(props) {
   };
 
   const refreshList = () => {
-    props.client.getLessons().then((response) => cLesson(response.data));
+    props.client.getLessons().then((response) => {
+      cLesson(response.data)
+      let filteredLessons = filterDataByLevel(response.data);
+      setFilteredLessons(filteredLessons);
+      console.log("Refresh List called")
+    });
   };
 
   const removeLesson = (id) => {
@@ -86,7 +91,6 @@ function Dashboard(props) {
     updateLesson(undefined);
   };
   const refreshListFind = (lesson) => {
-<<<<<<< HEAD
     props.client.getLessons(lesson).then((response) => cLesson(response.data));
   };
 
@@ -97,15 +101,6 @@ function Dashboard(props) {
   };
 
   //The first tiem the page is loaded the list of lessons is refereshed
-=======
-    props.client.getLessons(lesson).then((response) => cLesson(response.data))
-  }
-  
-  const querySearch = (searchParams) => {
-    props.client.findLesson(searchParams).then((response) => changeSearch(response.data))
-  }
-  
->>>>>>> 3de465f315a3dbe7f44dac745c91fc294d814675
   useEffect(() => {
     refreshList();
   }, []);
@@ -114,27 +109,16 @@ function Dashboard(props) {
     return getFilteredLessons.map((current) => {
       return (
         <tr key={current._id}>
-<<<<<<< HEAD
           <td>
             <Moment format="DD-MM-yyyy">{current.date}</Moment>
           </td>
-=======
-          
-          <td><Moment format="DD-MM-yyyy">{current.date}</Moment></td>
->>>>>>> 3de465f315a3dbe7f44dac745c91fc294d814675
           <td>{current.lesson}</td>
           <td>{current.level}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>
-<<<<<<< HEAD
             {hasPermission(props.client.role, action.removeLesson) && (
               <button onClick={() => removeLesson(current._id)}> remove</button>
-=======
-        
-            {hasPermission (props.client.role, action.removeLesson)&& (
-            <button onClick={() => removeLesson(current._id)}> remove</button>
->>>>>>> 3de465f315a3dbe7f44dac745c91fc294d814675
             )}
             {hasPermission(props.client.role, action.updateLesson) && (
               <button onClick={() => updateLesson(current)}> update</button>
@@ -171,12 +155,11 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
-<<<<<<< HEAD
       <div id="button">
         <button onClick={props.logout}>Logout</button>
         <br />
       </div>
-
+        <div>
       <table>
         <thead>
           <tr>
@@ -195,23 +178,6 @@ function Dashboard(props) {
               <option value="Three Star">three star</option>
 
             </select>
-=======
-<div id='button'>
-    <button onClick={props.logout}>Logout</button>
-    <br/>
-    </div>
-      
-    <div className="dash">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Lesson</th>
-            <th>Level</th>
-            <th>Equipment</th>
-            <th>Dress</th>
-            <tr></tr>
->>>>>>> 3de465f315a3dbe7f44dac745c91fc294d814675
           </tr>
         </thead>
         <tbody>{buildrows()}</tbody>
@@ -219,30 +185,16 @@ function Dashboard(props) {
       </div>  
       <br />
       <br />
-<<<<<<< HEAD
       {hasPermission(props.client.role, action.addLesson) && (
         <Add
           client={props.client}
           refreshList={() => {
             refreshList();
             cCurrent(undefined);
+
           }}
           currentLesson={current}
         />
-=======
-      {hasPermission (props.client.role, action.addLesson)&& (
-      <Add
-        client={props.client}
-        refreshList={() => {
-          refreshList();
-          cCurrent(undefined);
-        }}
-        currentLesson={current}
-     
-      />
-
-    
->>>>>>> 3de465f315a3dbe7f44dac745c91fc294d814675
       )}
       <style>{`
    table{
@@ -251,12 +203,7 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
-<<<<<<< HEAD
       <table>
-=======
-   <div className="dash">
-<table>
->>>>>>> 3de465f315a3dbe7f44dac745c91fc294d814675
         <thead>
           <tr>
             <th>Date</th>
@@ -268,14 +215,7 @@ function Dashboard(props) {
         </thead>
         <tbody>{buildsearchrows()}</tbody>
       </table>
-<<<<<<< HEAD
       <></>
-=======
-      </div>
-      <>
-  
-</>
->>>>>>> 3de465f315a3dbe7f44dac745c91fc294d814675
       <Find
         client={props.client}
         refreshListFind={refreshListFind}

@@ -18,14 +18,18 @@ function Add(props) {
       );
     } else {
       result = props.client.addLesson(e.target.lesson.value, e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value);
-      console.log( e.target.lesson.value)
+      console.log(props.client.addLesson)
+     
     }
     result
       .then(() => {
         cDisabled(false);
+       
         document.getElementById("addForm").reset();
-        return props.refreshList();
-      })
+         
+        props.refreshList();
+        
+      }    )
       .catch(() => {
         alert("an error occured, please try again");
         cDisabled(false);
@@ -48,6 +52,10 @@ function Add(props) {
     margin:0
     }
   `}</style>
+
+    
+
+
    <div className="dash">
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
         Date:<br/>
