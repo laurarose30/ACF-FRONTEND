@@ -10,7 +10,7 @@ function Login(props) {
    cDisabled(true);
 
    props.client
-    .login(e.target.username.value,e.target.password.value,e.target.role.value)
+    .login(e.target.username.value,e.target.password.value)
     .then( (response) => {
       cDisabled(false);
       console.log(response.data.token);
@@ -37,10 +37,7 @@ function Login(props) {
       <br />
       <br/>
       <form onSubmit={(e) => submitHandler(e)}>
-        role
-        <br/>
-        { <input type="text" name="role" disabled={disabled} /> }
-        <br/>
+     
 
         username
         <br />
