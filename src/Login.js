@@ -27,8 +27,9 @@ function Login(props) {
   return (
     <>
       
-      Welcome to the ACF login page (if you do not have a login please speak to your Instructors)
-      <br />
+     
+      <br/>
+      <br/>
       <br/>
       <div className="log">
       <div className="log-wrapper">
