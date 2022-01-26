@@ -56,9 +56,6 @@ function Add(props) {
     }
   `}</style>
 
-    
-
-
    <div className="dash">
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
         Date:<br/>

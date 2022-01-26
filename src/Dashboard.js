@@ -6,7 +6,6 @@ import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
 
-
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
   const [search, changeSearch] = useState([]);
@@ -15,7 +14,7 @@ function Dashboard(props) {
   const [show2, setShow2] = useState(false);
   const [levelFilter, setLevelFilter] = useState("");
   const [getFilteredLessons, setFilteredLessons] = useState([]);
-  const levels = ["Basic", "One Star", "Two Star", "Three Star"];
+  const levels = ["basic", "one star", "two star", "three star"];
 
 
   //given data will filter by the levelFilter
@@ -27,6 +26,7 @@ function Dashboard(props) {
     }
     return data;
   };
+
 
   //this function fires every time levelFilter changes
   useEffect(() => {
@@ -46,7 +46,7 @@ function Dashboard(props) {
     {
       id: "level",
     },
-    {
+    {                                    
       id: "equipment",
     },
     {
@@ -78,7 +78,7 @@ function Dashboard(props) {
       cLesson(response.data);
       let filteredLessons = filterDataByLevel(response.data);
       setFilteredLessons(filteredLessons);
-      console.log("Refresh List called");
+      console.log(filteredLessons)
     });
   };
 
@@ -108,6 +108,11 @@ function Dashboard(props) {
   useEffect(() => {
     refreshList();
   }, []);
+
+  
+
+  
+  
 
   const buildrows = () => {
     return getFilteredLessons.map((current) => {
@@ -173,33 +178,37 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
-      <div id="button">
-        <button onClick={props.logout}>Logout</button>
+      <div id="buttonlogout">
+        
+        <button id="logout" onClick={props.logout}>Logout</button>
         <br />
       </div>
-      <div className="dash">
-        <table>
-          <thead>
-            <tr>
-              {headerOptions.map((header) => (
-                <th className={props.headerSection}>
-                  {header.id}
-                  {header.filterOptions && <div>{header.filterOptions()}</div>}
-                </th>
-              ))}
 
-              <select onChange={(e) => setLevelFilter(e.target.value)}>
-                <option value="all">All stars</option>
-                <option value="basic">basic</option>
-                <option value="One Star">one star</option>
-                <option value="Two Star">two star</option>
-                <option value="Three Star">three star</option>
-              </select>
-            </tr>
-          </thead>
-          <tbody>{buildrows()}</tbody>
-        </table>
-      </div>
+        <div class="dash">
+
+      <table>
+        <thead>
+          <tr>
+            {headerOptions.map((header) => (
+              <th className={props.headerSection}>
+                {header.id}
+                {header.filterOptions && <div>{header.filterOptions()}</div>}
+              </th>
+            ))}
+
+            <select onChange={ (e) => setLevelFilter(e.target.value)}>
+              <option value="all">All stars</option>
+              <option value="basic">basic</option>
+              <option value="one star">one star</option>
+              <option value="two star">two star</option>
+              <option value="three star">three star</option>
+
+            </select>
+          </tr>
+        </thead>
+        <tbody>{buildrows()}</tbody>
+      </table> 
+      </div>  
       <br />
       <br />
       {hasPermission(props.client.role, action.addLesson) && (
@@ -236,7 +245,9 @@ function Dashboard(props) {
           <tbody>{buildsearchrows()}</tbody>
         </table>
       </div>
-      <></>
+      <>
+      </div>
+</>
       <Find
         client={props.client}
         refreshListFind={refreshListFind}
@@ -257,4 +268,6 @@ function Dashboard(props) {
   );
 }
 
+
+ 
 export default Dashboard;

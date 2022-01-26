@@ -93,3 +93,26 @@ button:not([disabled]):hover {
     -0.125rem -0.125rem 1rem rgba(82, 82, 82, 0.5),
     0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
+
+#nav{
+  background-color: hsl(120, 17%, 53%);
+  height: 1vh;
+  position: top;
+  text-align: center;
+  padding-top: 4px;
+  
+}
+
+#buttonlogout{
+  background-color: hsl(120, 17%, 53%);
+  height: 2.5vh;
+  display: flex;
+  justify-content: end;
+  padding-bottom: 1vh;
+  margin-bottom: 4vh;
+}
+
+#logout{
+  font-size: 12px;
+  padding-bottom: 0.5rem;
+}
