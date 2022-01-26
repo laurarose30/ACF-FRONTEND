@@ -246,7 +246,7 @@ function Dashboard(props) {
         </table>
       </div>
       <>
-      </div>
+      
 </>
       <Find
         client={props.client}
