@@ -9,8 +9,6 @@ import { Navbar, NavbarBrand } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { render } from "react-dom";
 
-
-
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
   const [search, changeSearch] = useState([]);
@@ -48,7 +46,6 @@ function Dashboard(props) {
 
     {
       id: "level",
-      
     },
     {                                    
       id: "equipment",
@@ -72,7 +69,7 @@ function Dashboard(props) {
 
   const refreshList = () => {
     props.client.getLessons().then((response) => {
-      cLesson(response.data)
+      cLesson(response.data);
       let filteredLessons = filterDataByLevel(response.data);
       setFilteredLessons(filteredLessons);
       console.log(filteredLessons)
@@ -200,7 +197,6 @@ function Dashboard(props) {
           refreshList={() => {
             refreshList();
             cCurrent(undefined);
-
           }}
           currentLesson={current}
         />
@@ -228,7 +224,7 @@ function Dashboard(props) {
       </table>
       <></>
       </div>
-      
+
       <Find
         client={props.client}
         refreshListFind={refreshListFind}
