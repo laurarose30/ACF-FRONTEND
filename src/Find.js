@@ -10,12 +10,15 @@ function Find(props) {
     const searchParams = {
       sLesson: e.target.sLesson.value,
       sLevel: e.target.sLevel.value,
+      sInstructor:e.target.sInstructor.value,
       sEquipment: e.target.sEquipment.value,
       sDress: e.target.sDress.value,
+      sSession: e.target.sSession.value,
       dateMin: e.target.dateMin.value,
       dateMax: e.target.dateMax.value,
     };
     props.querySearch(searchParams);
+    console.log( props.querySearch)
   };
   return (
     <>
@@ -47,7 +50,7 @@ function Find(props) {
               disabled={disabled}
               placeholder="Lesson"
             />
-            <br />
+             <br />
             Level: <br />
             <input
               type="text"
@@ -55,6 +58,24 @@ function Find(props) {
               name="sLevel"
               disabled={disabled}
               placeholder="Level"
+            />  
+            <br />
+               Instructor: <br />
+            <input
+              type="text"
+              defaultValue={props.currentLesson?.sInstructor}
+              name="sInstructor"
+              disabled={disabled}
+              placeholder="Instructor"
+            />
+            <br />
+             Session: <br />
+            <input
+              type="text"
+              defaultValue={props.currentLesson?.sSession}
+              name="sSession"
+              disabled={disabled}
+              placeholder="Session"
             />
             <br />
             Equipment: <br />
