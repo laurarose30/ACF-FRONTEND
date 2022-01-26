@@ -5,9 +5,6 @@ import hasPermission from "./permissions.js";
 import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
-import { Navbar, NavbarBrand } from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { render } from "react-dom";
 
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
@@ -18,6 +15,7 @@ function Dashboard(props) {
   const [levelFilter, setLevelFilter] = useState("");
   const [getFilteredLessons, setFilteredLessons] = useState([]);
   const levels = ["basic", "one star", "two star", "three star"];
+
 
   //given data will filter by the levelFilter
   const filterDataByLevel = (data) => {
@@ -40,10 +38,11 @@ function Dashboard(props) {
     {
       id: "date",
     },
+  
     {
       id: "lesson",
     },
-
+ 
     {
       id: "level",
     },
@@ -52,9 +51,16 @@ function Dashboard(props) {
     },
     {
       id: "dress",
+    }, 
+    {
+      id:"instructor",
+    },
+    {
+      id:"session",
     },
   ];
 
+  
   const renderLevelOptions = () => ["all", ...levels];
 
   const renderDropdown = (currentVal, changeFunc, options) => {
@@ -97,7 +103,7 @@ function Dashboard(props) {
       .findLesson(searchParams)
       .then((response) => changeSearch(response.data));
   };
-
+ 
   //The first tiem the page is loaded the list of lessons is refereshed
   useEffect(() => {
     refreshList();
@@ -110,15 +116,26 @@ function Dashboard(props) {
 
   const buildrows = () => {
     return getFilteredLessons.map((current) => {
+     
       return (
         <tr key={current._id}>
           <td>
             <Moment format="DD-MM-yyyy">{current.date}</Moment>
           </td>
-          <td>{current.lesson}</td>
+          <td>
+     {current.lesson.map((session) => { return (
+     <div>
+       {session}
+       
+    </div>)})}
+  
+ </td>
+
           <td>{current.level}</td>
-          <td>{current.equipment}</td>
+           <td>{current.equipment}</td>
           <td>{current.dress}</td>
+           <td>{current.instructor}</td>
+           <td>{current.session  }</td>
           <td>
             {hasPermission(props.client.role, action.removeLesson) && (
               <button onClick={() => removeLesson(current._id)}> remove</button>
@@ -144,6 +161,9 @@ function Dashboard(props) {
           <td>{current.level}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
+          <td>{current.instructor}</td>
+          <td>{current.session}</td>
+          
         </tr>
       );
     });
@@ -208,23 +228,26 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
-
-    <div class="dash">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Lesson</th>
-            <th>Level</th>
-            <th>Equipment</th>
-            <th>Dress</th>
-          </tr>
-        </thead>
-        <tbody>{buildsearchrows()}</tbody>
-      </table>
-      <></>
+      <div className="dash">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Lesson</th>
+              <th>Level</th>
+              <th>Instructor</th>
+              <th>Session</th>
+              <th>Equipment</th>
+              <th>Dress</th>
+              
+            </tr>
+          </thead>
+          <tbody>{buildsearchrows()}</tbody>
+        </table>
       </div>
-
+      <>
+      </div>
+</>
       <Find
         client={props.client}
         refreshListFind={refreshListFind}

@@ -20,12 +20,13 @@
   height: 100%;
 }
 .dash {
-  width: 90%;
+  width: 93%;
   margin: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: left;
+  font-size: 17px;
 }
 
 table {
@@ -37,6 +38,7 @@ table {
   border-left-color: rgb(255, 255, 255);
   align-items: center;
   border-radius: 15px;
+  font-size: 17px;
 }
 form{
   border-radius: 15px;

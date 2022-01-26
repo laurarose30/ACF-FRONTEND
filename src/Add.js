@@ -14,11 +14,14 @@ function Add(props) {
         e.target.level.value,
         e.target.equipment.value,
         e.target.dress.value,
-        e.target.date.value
+       e.target.instructor.value, 
+       e.target.session.value,
+       e.target.date.value,
+        
       );
     } else {
-      result = props.client.addLesson(e.target.lesson.value, e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value);
-      
+      result = props.client.addLesson(e.target.lesson.value, e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.instructor.value, e.target.session.value, e.target.date.value);
+      console.log(props.client.addLesson)
      
     }
     result
@@ -61,16 +64,25 @@ function Add(props) {
         defaultValue={makeDate(props.currentLesson?.date)}
         name="date"
         disabled={disabled}
-      />
-      <br/>
+       />
+     <br/>
         Name: 
         <br />
         <input
-          type="text"
+          type="textarea"
           defaultValue={props.currentLesson?.lesson}
           name="lesson"
           disabled={disabled}
         />
+        <br/>
+      instructor: 
+        <br />
+        <input
+          type="text"
+          defaultValue={props.currentLesson?.instructor}
+          name="instructor"
+          disabled={disabled}
+          />
         <br />
         level:
         <br />
@@ -99,6 +111,14 @@ function Add(props) {
           disabled={disabled}
           />
         <br />
+        session:
+        <br />
+        <input
+          type="array"
+          defaultValue={props.currentLesson?.session}
+          name="session"
+          disabled={disabled}
+         />
         <button type="submit" disabled={disabled}>
           {" "}
           Submit{" "}
