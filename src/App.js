@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-     <Navbar  id="nav" expand="lg" variant="light" bg="light">
+     <Navbar id="nav" expand="lg" variant="light" bg="light">
         <Container>
           <Navbar.Brand>ACF Training</Navbar.Brand>
           
