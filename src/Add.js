@@ -18,7 +18,7 @@ function Add(props) {
       );
     } else {
       result = props.client.addLesson(e.target.lesson.value, e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value);
-      console.log(props.client.addLesson)
+      
      
     }
     result
@@ -52,9 +52,6 @@ function Add(props) {
     margin:0
     }
   `}</style>
-
-    
-
 
    <div className="dash">
       <form onSubmit={(e) => submitHandler(e)} id="addForm">

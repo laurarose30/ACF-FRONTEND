@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import Dashboard from "./Dashboard";
 import { ApiClient } from "./apiClient";
 import Login from "./Login";
+import { Container, Navbar } from "react-bootstrap";
+import "./Style.css";
+import { ReactDOM } from "react";
+
 
 
 function App() {
@@ -26,18 +30,32 @@ function App() {
 
   return (
     <>
+     <Navbar  id="nav" expand="lg" variant="light" bg="light">
+        <Container>
+          <Navbar.Brand>ACF Training</Navbar.Brand>
+          
+        </Container>
+      </Navbar>
+      
       {token ? (
+
+        
         <Dashboard client={client} 
         logout={()=>logout()}
+
         />
       ) : (
         <Login loggedIn={(token, role) => login(token, role)} client={client} />
-      )
-      
-      }
+        
+      )}
+ 
+    
       
     </>
   );
+  
 }
+
+
 
 export default App;

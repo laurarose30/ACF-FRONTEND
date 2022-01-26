@@ -5,9 +5,9 @@ import hasPermission from "./permissions.js";
 import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
-// import { Navbar.Brand } from "react-bootstrap";
-import { Navbar } from "react-bootstrap";
+import { Navbar, NavbarBrand } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+import { render } from "react-dom";
 
 
 
@@ -19,7 +19,7 @@ function Dashboard(props) {
   const [show2, setShow2] = useState(false);
   const [levelFilter, setLevelFilter] = useState("");
   const [getFilteredLessons, setFilteredLessons] = useState([]);
-  const levels = ["Basic", "One Star", "Two Star", "Three Star"];
+  const levels = ["basic", "one star", "two star", "three star"];
 
   //given data will filter by the levelFilter
   const filterDataByLevel = (data) => {
@@ -30,6 +30,7 @@ function Dashboard(props) {
     }
     return data;
   };
+
 
   //this function fires every time levelFilter changes
   useEffect(() => {
@@ -49,7 +50,7 @@ function Dashboard(props) {
       id: "level",
       
     },
-    {
+    {                                    
       id: "equipment",
     },
     {
@@ -74,7 +75,7 @@ function Dashboard(props) {
       cLesson(response.data)
       let filteredLessons = filterDataByLevel(response.data);
       setFilteredLessons(filteredLessons);
-      console.log("Refresh List called")
+      console.log(filteredLessons)
     });
   };
 
@@ -104,6 +105,11 @@ function Dashboard(props) {
   useEffect(() => {
     refreshList();
   }, []);
+
+  
+
+  
+  
 
   const buildrows = () => {
     return getFilteredLessons.map((current) => {
@@ -155,11 +161,14 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
-      <div id="button">
-        <button onClick={props.logout}>Logout</button>
+      <div id="buttonlogout">
+        
+        <button id="logout" onClick={props.logout}>Logout</button>
         <br />
       </div>
-        <div>
+
+        <div class="dash">
+
       <table>
         <thead>
           <tr>
@@ -173,9 +182,9 @@ function Dashboard(props) {
             <select onChange={ (e) => setLevelFilter(e.target.value)}>
               <option value="all">All stars</option>
               <option value="basic">basic</option>
-              <option value="One Star">one star</option>
-              <option value="Two Star">two star</option>
-              <option value="Three Star">three star</option>
+              <option value="one star">one star</option>
+              <option value="two star">two star</option>
+              <option value="three star">three star</option>
 
             </select>
           </tr>
@@ -203,6 +212,8 @@ function Dashboard(props) {
     margin:0
         }
   `}</style>
+
+    <div class="dash">
       <table>
         <thead>
           <tr>
@@ -216,6 +227,8 @@ function Dashboard(props) {
         <tbody>{buildsearchrows()}</tbody>
       </table>
       <></>
+      </div>
+      
       <Find
         client={props.client}
         refreshListFind={refreshListFind}
@@ -236,4 +249,6 @@ function Dashboard(props) {
   );
 }
 
+
+ 
 export default Dashboard;
