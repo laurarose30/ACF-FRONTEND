@@ -10,7 +10,7 @@ function Add(props) {
     if (props.currentLesson) {
       result = props.client.updateLesson(
         props.currentLesson._id,
-        e.target.lesson.value,
+        e.target.lesson.value.split("\n"),
         e.target.level.value,
         e.target.equipment.value,
         e.target.dress.value,
@@ -20,7 +20,7 @@ function Add(props) {
         
       );
     } else {
-      result = props.client.addLesson(e.target.lesson.value, e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.instructor.value, e.target.session.value, e.target.date.value);
+      result = props.client.addLesson(e.target.lesson.value.split("\n"), e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.instructor.value, e.target.session.value, e.target.date.value);
       console.log(props.client.addLesson)
      
     }
@@ -41,6 +41,13 @@ function Add(props) {
   const makeDate = (date) => {
     return date && new Date(date).toISOString().substr(0,16)
   }
+
+  
+
+
+  
+
+
   return (
     <>
       {props.currentLesson ? "Update" : "Add Lesson"}
@@ -56,6 +63,9 @@ function Add(props) {
     }
   `}</style>
 
+    
+
+
    <div className="dash">
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
         Date:<br/>
@@ -66,14 +76,16 @@ function Add(props) {
         disabled={disabled}
        />
      <br/>
-        Name: 
+        Lesson: 
         <br />
-        <input
-          type="textarea"
-          defaultValue={props.currentLesson?.lesson}
+        <textarea
+          
+          
+          defaultValue={props.currentLesson?.lesson.join('\n')}
           name="lesson"
           disabled={disabled}
         />
+        
         <br/>
       instructor: 
         <br />
@@ -129,6 +141,6 @@ function Add(props) {
       <br/>
     </>
   );
-}
 
+  }
 export default Add;

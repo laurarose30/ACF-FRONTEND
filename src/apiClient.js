@@ -64,7 +64,7 @@ export class ApiClient {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateLesson(id, lesson, level, equipment, dress, date, instructor, session) {
+  updateLesson(id, lesson, level, equipment, dress,  instructor, session, date,) {
     return this.authenticatedCall("put", `${url}${id}`, { lesson, level, equipment, dress, date, instructor, session });
   }
   findLesson( sLesson, sLevel, sEquipment, sInstructor, sDress, sSession, dateMin, dateMax){

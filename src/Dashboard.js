@@ -5,6 +5,7 @@ import hasPermission from "./permissions.js";
 import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
+import { Navbar, Container, Button } from "react-bootstrap";
 
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
@@ -171,6 +172,12 @@ function Dashboard(props) {
 
   return (
     <>
+    <Navbar id="nav" expand="lg" variant="light" bg="light">
+        <Container>
+          <Navbar.Brand>ACF Training</Navbar.Brand>
+            <Button id="logout" onClick={props.logout}>Logout</Button>
+        </Container>
+      </Navbar>
       <style>{`
    table{
     color: black; 
@@ -180,7 +187,7 @@ function Dashboard(props) {
   `}</style>
       <div id="buttonlogout">
         
-        <button id="logout" onClick={props.logout}>Logout</button>
+      
         <br />
       </div>
 
