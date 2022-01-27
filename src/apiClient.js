@@ -56,19 +56,20 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  addLesson(lesson, level, equipment, dress, date, instructor, session) {
-    return this.authenticatedCall("post", url, { lesson, level, equipment, dress, date, instructor, session });
+  addLesson(lesson, level, equipment, dress, date, instructor) {
+    return this.authenticatedCall("post", url, { lesson, level, equipment, dress, date, instructor,  });
+   
   }
 
   removeLesson(id) {
     return this.authenticatedCall("delete", `${url}${id}`);
   }
 
-  updateLesson(id, lesson, level, equipment, dress,  instructor, session, date,) {
-    return this.authenticatedCall("put", `${url}${id}`, { lesson, level, equipment, dress, date, instructor, session });
+  updateLesson(id, lesson, level, equipment, dress,  instructor, date,) {
+    return this.authenticatedCall("put", `${url}${id}`, { lesson, level, equipment, dress, date, instructor,  });
   }
-  findLesson( sLesson, sLevel, sEquipment, sInstructor, sDress, sSession, dateMin, dateMax){
-    return this.authenticatedCall("post", `${url}lesson/search`, {sLesson, sLevel, sEquipment, sDress, sInstructor, sSession, dateMin, dateMax });
+  findLesson( sLesson, sLevel, sEquipment, sInstructor, sDress,  dateMin, dateMax){
+    return this.authenticatedCall("post", `${url}lesson/search`, {sLesson, sLevel, sEquipment, sDress, sInstructor,  dateMin, dateMax });
   }
 
   getFilteredLessons(level){

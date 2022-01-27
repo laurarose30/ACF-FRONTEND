@@ -14,13 +14,12 @@ function Add(props) {
         e.target.level.value,
         e.target.equipment.value,
         e.target.dress.value,
-       e.target.instructor.value, 
-       e.target.session.value,
-       e.target.date.value,
-        
+        e.target.instructor.value,
+        e.target.date.value,
+         
       );
     } else {
-      result = props.client.addLesson(e.target.lesson.value.split("\n"), e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.instructor.value, e.target.session.value, e.target.date.value);
+      result = props.client.addLesson(e.target.lesson.value.split("\n"), e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value,  e.target.instructor.value);
       console.log(props.client.addLesson)
      
     }
@@ -123,14 +122,7 @@ function Add(props) {
           disabled={disabled}
           />
         <br />
-        session:
-        <br />
-        <input
-          type="array"
-          defaultValue={props.currentLesson?.session}
-          name="session"
-          disabled={disabled}
-         />
+        <br/>
         <button type="submit" disabled={disabled}>
           {" "}
           Submit{" "}

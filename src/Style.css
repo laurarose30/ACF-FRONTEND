@@ -19,6 +19,7 @@
   margin-top: 0%;
   height: 100%;
 }
+
 .dash {
   width: 93%;
   margin: auto;
@@ -27,6 +28,19 @@
   flex-direction: column;
   text-align: left;
   font-size: 17px;
+}
+
+@media screen and (max-width:300px) {
+  .dash {
+    width: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    font-size: 17px;
+  }
+  
 }
 
 table {
@@ -95,25 +109,32 @@ button:not([disabled]):hover {
     0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
-#nav{
-  background-color: hsl(120, 17%, 53%);
-  height: 1vh;
-  position: top;
-  text-align: center;
-  padding-top: 4px;
+Button{
+  font-size: 12px;
+ align-items: flex-end;
+  
   
 }
 
-#buttonlogout{
+#nav{
   background-color: hsl(120, 17%, 53%);
-  height: 2.5vh;
-  display: flex;
-  justify-content: end;
-  padding-bottom: 1vh;
-  margin-bottom: 4vh;
+  height: 5vh;
+  padding-top: 4px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  
+}
+#name{
+  width: 100%;
+  flex-direction: row;
 }
 
 #logout{
-  font-size: 12px;
-  padding-bottom: 0.5rem;
+ float: right;
+ margin-right: 5px;
+ 
 }
+
+

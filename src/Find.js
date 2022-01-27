@@ -13,7 +13,6 @@ function Find(props) {
       sInstructor:e.target.sInstructor.value,
       sEquipment: e.target.sEquipment.value,
       sDress: e.target.sDress.value,
-      sSession: e.target.sSession.value,
       dateMin: e.target.dateMin.value,
       dateMax: e.target.dateMax.value,
     };
@@ -69,14 +68,7 @@ function Find(props) {
               placeholder="Instructor"
             />
             <br />
-             Session: <br />
-            <input
-              type="text"
-              defaultValue={props.currentLesson?.sSession}
-              name="sSession"
-              disabled={disabled}
-              placeholder="Session"
-            />
+            
             <br />
             Equipment: <br />
             <input

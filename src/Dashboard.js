@@ -5,7 +5,7 @@ import hasPermission from "./permissions.js";
 import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
-import { Navbar, Container, Button } from "react-bootstrap";
+import {Nav, Navbar, Button } from "react-bootstrap";
 
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
@@ -56,9 +56,7 @@ function Dashboard(props) {
     {
       id:"instructor",
     },
-    {
-      id:"session",
-    },
+    
   ];
 
   
@@ -136,7 +134,7 @@ function Dashboard(props) {
            <td>{current.equipment}</td>
           <td>{current.dress}</td>
            <td>{current.instructor}</td>
-           <td>{current.session  }</td>
+           
           <td>
             {hasPermission(props.client.role, action.removeLesson) && (
               <button onClick={() => removeLesson(current._id)}> remove</button>
@@ -163,7 +161,7 @@ function Dashboard(props) {
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>{current.instructor}</td>
-          <td>{current.session}</td>
+         
           
         </tr>
       );
@@ -172,12 +170,18 @@ function Dashboard(props) {
 
   return (
     <>
-    <Navbar id="nav" expand="lg" variant="light" bg="light">
-        <Container>
-          <Navbar.Brand>ACF Training</Navbar.Brand>
-            <Button id="logout" onClick={props.logout}>Logout</Button>
-        </Container>
-      </Navbar>
+
+    <Nav>
+        
+         
+          <Navbar id="nav">ACF Training
+           
+           <Button id="logout" onClick={props.logout}>Logout</Button>
+           
+           </Navbar>
+          
+   </Nav>
+
       <style>{`
    table{
     color: black; 
@@ -191,7 +195,7 @@ function Dashboard(props) {
         <br />
       </div>
 
-        <div class="dash">
+        <div class ="dash">
 
       <table>
         <thead>
@@ -243,7 +247,6 @@ function Dashboard(props) {
               <th>Lesson</th>
               <th>Level</th>
               <th>Instructor</th>
-              <th>Session</th>
               <th>Equipment</th>
               <th>Dress</th>
               
