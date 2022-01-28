@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import "./App.css";
-
+import toastr from "toastr";
+import "toastr/build/toastr.css";
 function Find(props) {
   const [disabled, cDisabled] = useState(false);
 
+  
+
+
   const submitHandler = (e) => {
     e.preventDefault();
+    toastr.error("Cadets do NOT forget the equipment/uniform requirements for your lesson!")
     const searchParams = {
       sLesson: e.target.sLesson.value,
       sLevel: e.target.sLevel.value,
@@ -15,9 +20,11 @@ function Find(props) {
       sDress: e.target.sDress.value,
       dateMin: e.target.dateMin.value,
       dateMax: e.target.dateMax.value,
-    };
+    }; 
+    
     props.querySearch(searchParams);
     console.log( props.querySearch)
+   
   };
   return (
     <>

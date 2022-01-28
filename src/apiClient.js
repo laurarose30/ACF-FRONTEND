@@ -44,6 +44,10 @@ export class ApiClient {
     });
   }
 
+  register(userName, email, password, role){
+    return this.apiCall("post", url + "register/", {userName: userName, email:email, password:password, role:role});
+  }
+
   login(userName,password, role) {
     return this.apiCall("post",url + "auth/",{userName: userName, password:password, role:role });
   }

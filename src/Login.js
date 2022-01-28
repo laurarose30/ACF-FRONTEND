@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Register from "./Register";
 function Login(props) {
   
   const [disabled, cDisabled] = useState(false);
@@ -26,8 +26,6 @@ function Login(props) {
 
   return (
     <>
-      
-     
       <br/>
       <br/>
       <br/>
@@ -57,8 +55,24 @@ function Login(props) {
       </div>
       </div>
       </div>
+
+      <Register
+      client= {props.client}
+      
+      />
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 export default Login;

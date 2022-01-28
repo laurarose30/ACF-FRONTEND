@@ -34,7 +34,19 @@ function App() {
         <Dashboard client={client} logout={() => logout()} />
       ) : (
         <Login loggedIn={(token, role) => login(token, role)} client={client} />
-      )}
+       
+        )
+      }
+      
+     
+      
+          
+        
+      
+       
+    
+
+       
      
 
 
