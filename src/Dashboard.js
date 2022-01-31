@@ -39,7 +39,9 @@ function Dashboard(props) {
     {
       id: "date",
     },
-  
+    {
+      id:"subject",
+    },
     {
       id: "lesson",
     },
@@ -56,6 +58,7 @@ function Dashboard(props) {
     {
       id:"instructor",
     },
+  
     
   ];
 
@@ -86,6 +89,7 @@ function Dashboard(props) {
   };
 
   const updateLesson = (Lesson) => {
+    console.log(Lesson)
     cCurrent(Lesson);
     cCurrent(Lesson);
     setShow(!show);
@@ -118,9 +122,15 @@ function Dashboard(props) {
      
       return (
         <tr key={current._id}>
+         
           <td>
             <Moment format="DD-MM-yyyy">{current.date}</Moment>
           </td>
+           <td>{current.subject.map((session) => { return (
+     <div>
+       {session}
+       
+    </div>)})}</td>
           <td>
      {current.lesson.map((session) => { return (
      <div>
@@ -129,11 +139,11 @@ function Dashboard(props) {
     </div>)})}
   
  </td>
-
-          <td>{current.level}</td>
+           <td>{current.level}</td>
            <td>{current.equipment}</td>
           <td>{current.dress}</td>
            <td>{current.instructor}</td>
+           
            
           <td>
             {hasPermission(props.client.role, action.removeLesson) && (
@@ -155,12 +165,13 @@ function Dashboard(props) {
           <td>
             <Moment format="DD-MM-yyyy">{current.date}</Moment>
           </td>
-
+          <td>{current.subject}</td>
           <td>{current.lesson}</td>
           <td>{current.level}</td>
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>{current.instructor}</td>
+         
          
           
         </tr>
@@ -244,6 +255,7 @@ function Dashboard(props) {
           <thead>
             <tr>
               <th>Date</th>
+              <th>Subject</th>
               <th>Lesson</th>
               <th>Level</th>
               <th>Instructor</th>

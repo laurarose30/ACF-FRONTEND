@@ -18,6 +18,7 @@ function Find(props) {
       sInstructor:e.target.sInstructor.value,
       sEquipment: e.target.sEquipment.value,
       sDress: e.target.sDress.value,
+      sSubject: e.target.sSubject.value,
       dateMin: e.target.dateMin.value,
       dateMax: e.target.dateMax.value,
     }; 
@@ -48,6 +49,15 @@ function Find(props) {
             onSubmit={(e) => submitHandler(e)}
             id="findForm"
           >
+              Subject: <br />
+            <input
+              type="text"
+              defaultValue={props.currentLesson?.sSubject}
+              name="sSubject"
+              disabled={disabled}
+              placeholder="Lesson"
+            />
+             <br />
             Lesson: <br />
             <input
               type="text"

@@ -18,10 +18,11 @@ function Add(props) {
         e.target.dress.value,
         e.target.instructor.value,
         e.target.date.value,
+        e.target.subject.value.split("\n"),
          
       );
     } else {
-      result = props.client.addLesson(e.target.lesson.value.split("\n"), e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value,  e.target.instructor.value);
+      result = props.client.addLesson(e.target.lesson.value.split("\n"), e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value,  e.target.instructor.value, e.target.subject.value.split("\n"),);
       console.log(props.client.addLesson)
      
     }
@@ -77,11 +78,20 @@ function Add(props) {
         disabled={disabled}
        />
      <br/>
+     Subject:<br/>
+     
+        <textarea
+          type="text"
+          defaultValue={props.currentLesson?.subject.join('\n')}
+          name="subject"
+          disabled={disabled}
+          />
+        <br />
+
         Lesson: 
         <br />
         <textarea
-          
-          
+                  
           defaultValue={props.currentLesson?.lesson.join('\n')}
           name="lesson"
           disabled={disabled}
