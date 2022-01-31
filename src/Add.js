@@ -14,15 +14,15 @@ function Add(props) {
         props.currentLesson._id,
         e.target.lesson.value.split("\n"),
         e.target.level.value,
-        e.target.equipment.value,
-        e.target.dress.value,
-        e.target.instructor.value,
+        e.target.equipment.value.split("\n"),
+        e.target.dress.value.split("\n"),
+        e.target.instructor.value.split("\n"),
         e.target.date.value,
         e.target.subject.value.split("\n"),
          
       );
     } else {
-      result = props.client.addLesson(e.target.lesson.value.split("\n"), e.target.level.value, e.target.equipment.value, e.target.dress.value, e.target.date.value,  e.target.instructor.value, e.target.subject.value.split("\n"),);
+      result = props.client.addLesson(e.target.lesson.value.split("\n"), e.target.level.value, e.target.equipment.value.split("\n"), e.target.dress.value.split("\n"), e.target.date.value,  e.target.instructor.value.split("\n"), e.target.subject.value.split("\n"),);
       console.log(props.client.addLesson)
      
     }
@@ -100,9 +100,9 @@ function Add(props) {
         <br/>
       instructor: 
         <br />
-        <input
+        <textarea
           type="text"
-          defaultValue={props.currentLesson?.instructor}
+          defaultValue={props.currentLesson?.instructor.join('\n')}
           name="instructor"
           disabled={disabled}
           />
@@ -118,18 +118,18 @@ function Add(props) {
         <br />
         equipment:
         <br />
-        <input
+        <textarea
           type="text"
-          defaultValue={props.currentLesson?.equipment}
+          defaultValue={props.currentLesson?.equipment.join('\n')}
           name="equipment"
           disabled={disabled}
         />
         <br />
         dress:
         <br />
-        <input
+        <textarea
           type="text"
-          defaultValue={props.currentLesson?.dress}
+          defaultValue={props.currentLesson?.dress.join('\n')}
           name="dress"
           disabled={disabled}
           />

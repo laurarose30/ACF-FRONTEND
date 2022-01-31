@@ -140,9 +140,21 @@ function Dashboard(props) {
   
  </td>
            <td>{current.level}</td>
-           <td>{current.equipment}</td>
-          <td>{current.dress}</td>
-           <td>{current.instructor}</td>
+           <td>{current.equipment.map((session) => { return (
+     <div>
+       {session}
+       
+    </div>)})}</td>
+          <td>{current.dress.map((session) => { return (
+     <div>
+       {session}
+       
+    </div>)})}</td>
+           <td>{current.instructor.map((session) => { return (
+     <div>
+       {session}
+       
+    </div>)})}</td>
            
            
           <td>
