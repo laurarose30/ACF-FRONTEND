@@ -46,8 +46,10 @@ const handleSubmit = (e) => {
 	setError(true);
 	} else {
 		props.client.register(name, email, password , role)
+	
 	setSubmitted(true);
 	setError(false);
+	//props.changeRegister(false);
 	}
 };
 
@@ -78,7 +80,7 @@ const errorMessage = () => {
 };
 
 return (
-	<div className="form">
+	<div className="register">
 	<div>
 		<h3>User Registration</h3>
 	</div>
@@ -91,27 +93,38 @@ return (
 
 	<form>
 		{/* Labels and inputs for form data */}
-		<label className="label">Name</label>
+		<label className="label">Name</label> 
+		<br/>
 		<input onChange={handleName} className="input"
 		value={name} type="text" />
+		<br/>
 
 		<label className="label">Email</label>
+		<br/>
 		<input onChange={handleEmail} className="input"
 		value={email} type="email" />
-
+		<br/>
 		<label className="label">Password</label>
+		<br/>
 		<input onChange={handlePassword} className="input"
 		value={password} type="password" />
-
+		<br/>
 		<label className="label">Role</label>
+		<br/>
 		<input onChange={handleRole} className="input"
 		value={role} type="text"/>
-
+		<br/>
+		<br/>
 		<button onClick={handleSubmit} className="btn" type="submit">
-		Submit
+
+	    	Submit
 		</button>
 		
+		<button onClick={() => props.changeRegister(false)}>go back</button>
 	</form>
 	</div>
+	
 );
+
+
 }

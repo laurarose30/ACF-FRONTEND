@@ -6,6 +6,7 @@ import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
 import {Nav, Navbar, Button } from "react-bootstrap";
+import { image } from "./logoarmy.png";
 
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
@@ -37,24 +38,24 @@ function Dashboard(props) {
 
   const headerOptions = [
     {
-      id: "date",
+      id: "Date",
     },
   
     {
-      id: "lesson",
+      id: "Lesson",
     },
  
     {
-      id: "level",
+      id: "Level",
     },
     {                                    
-      id: "equipment",
+      id: "Equipment",
     },
     {
-      id: "dress",
+      id: "Dress",
     }, 
     {
-      id:"instructor",
+      id:"Instructor",
     },
     
   ];
@@ -174,7 +175,10 @@ function Dashboard(props) {
     <Nav>
         
          
-          <Navbar id="nav">ACF Training
+          <Navbar id="nav">
+          <img src={"logoarmy.png"} height={100} width={100} />
+          
+            ACF Training
            
            <Button id="logout" onClick={props.logout}>Logout</Button>
            
@@ -246,10 +250,9 @@ function Dashboard(props) {
               <th>Date</th>
               <th>Lesson</th>
               <th>Level</th>
-              <th>Instructor</th>
               <th>Equipment</th>
               <th>Dress</th>
-              
+              <th>Instructor</th>
             </tr>
           </thead>
           <tbody>{buildsearchrows()}</tbody>

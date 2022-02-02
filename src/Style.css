@@ -1,3 +1,10 @@
+html {
+  font-family: "NeoSansProRegular.OTF";
+  
+}
+
+
+
 .log-wrapper {
   display: flex;
   justify-content: center;
@@ -12,8 +19,21 @@
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
 }
+
+.register{
+  width: 450px;
+  margin: auto;
+  background-color: rgba(34, 35, 58, 0.2);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  align-items: center;
+ 
+}
+
+
 .log {
-  background-image: url("awesomelogo2.png");
+  
   background-repeat: no-repeat;
   background-position: 0%;
   margin-top: 0%;
@@ -73,6 +93,8 @@ tr:nth-child(even) {
   color: rgb(0, 0, 0);
 }
 
+
+
 button {
   border: 0;
   border-radius: 7px;
@@ -117,13 +139,14 @@ Button{
 }
 
 #nav{
-  background-color: hsl(120, 17%, 53%);
-  height: 5vh;
+  background-color: #262b27;
+  height: 132.5px;
   padding-top: 4px;
   width: 100%;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  color: white;
   
 }
 #name{

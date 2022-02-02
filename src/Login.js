@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Register from "./Register";
+import toastr from "toastr";
+import "toastr/build/toastr.css";
+import "./Style.css";
 function Login(props) {
   
   const [disabled, cDisabled] = useState(false);
@@ -7,6 +10,7 @@ function Login(props) {
   const submitHandler = (e) => {
   console.log("submitted");
    e.preventDefault();
+   toastr.warning("If you think your login permissions are incorrect, please contact admin");
    cDisabled(true);
 
    props.client
@@ -15,8 +19,9 @@ function Login(props) {
       cDisabled(false);
       console.log(response.data.token);
       props.loggedIn(response.data.token, response.data.role);
-
+      
     })
+    
     .catch((error) => {
         alert("an error occurred, please try again")
         console.log(error);
@@ -33,10 +38,7 @@ function Login(props) {
       <div className="log-wrapper">
         <div className="log-inner">
       <form id ="loginform" onSubmit={(e) => submitHandler(e)}>
-        Role
-        <br/>
-        { <input type="text" name="role" disabled={disabled} /> }
-        <br/> 
+        
 
         username
         <br />
@@ -56,10 +58,7 @@ function Login(props) {
       </div>
       </div>
 
-      <Register
-      client= {props.client}
-      
-      />
+     
     </>
   );
 }
