@@ -41,13 +41,13 @@ html {
 }
 
 .dash {
-  width: 93%;
+  width: 95%;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-direction: column;
   text-align: left;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 @media screen and (max-width:300px) {
@@ -55,7 +55,7 @@ html {
     width: auto;
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-direction: column;
     text-align: left;
     font-size: 17px;
@@ -66,13 +66,14 @@ html {
 table {
   background-color: hsl(120, 17%, 53%);
   color: rgb(253, 253, 253);
-  text-align: center;
+  text-align: left;
   border-spacing: 10px;
   margin-top: 10%;
   border-left-color: rgb(255, 255, 255);
   align-items: center;
   border-radius: 15px;
   font-size: 17px;
+  text-decoration: underline;
 }
 form{
   border-radius: 15px;
