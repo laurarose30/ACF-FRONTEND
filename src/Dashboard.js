@@ -5,8 +5,8 @@ import hasPermission from "./permissions.js";
 import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
-import {Nav, Navbar, Button } from "react-bootstrap";
-import { image } from "./logoarmy.png";
+import {Nav, Navbar, Button, NavbarBrand } from "react-bootstrap";
+import logo from "./logo/logoarmy.png";
 
 function Dashboard(props) {
   const [Lesson, cLesson] = useState([]);
@@ -16,6 +16,7 @@ function Dashboard(props) {
   const [show2, setShow2] = useState(false);
   const [levelFilter, setLevelFilter] = useState("");
   const [getFilteredLessons, setFilteredLessons] = useState([]);
+  
   const levels = ["basic", "one star", "two star", "three star"];
 
 
@@ -104,6 +105,7 @@ function Dashboard(props) {
       .then((response) => changeSearch(response.data));
   };
  
+  
   //The first tiem the page is loaded the list of lessons is refereshed
   useEffect(() => {
     refreshList();
@@ -169,6 +171,8 @@ function Dashboard(props) {
     });
   };
 
+
+  
   return (
     <>
 
@@ -176,12 +180,19 @@ function Dashboard(props) {
         
          
           <Navbar id="nav">
-          <img src={"logoarmy.png"} height={100} width={100} />
+         <div className="logo" >
+          <img
+          src={logo}
+          alt="event blogger"
+          height="40"
+        />  
+        <div className="title">
+         ACF Training
+         </div>
+         </div>
           
-            ACF Training
-           
            <Button id="logout" onClick={props.logout}>Logout</Button>
-           
+              
            </Navbar>
           
    </Nav>
