@@ -31,19 +31,13 @@ function App() {
 
   return (
     <>
-     
-      
       {token ? (
         <Dashboard client={client} logout={() => logout()} />
       ) : (
         register ?
         <Register client={client} changeRegister={changeRegister} /> :
         <> 
-        <button onClick={ () => changeRegister(true)} >Register</button>
-        
-        <Login loggedIn={(token, role) => login(token, role)} client={client} />
-
-      
+        <Login loggedIn={(token, role) => login(token, role)} client={client} onRegister={() => changeRegister(true)} />
         </>
         )
         
