@@ -38,9 +38,12 @@ function App() {
       ) : (
         register ?
         <Register client={client} changeRegister={changeRegister} /> :
-        <>
-        <Login loggedIn={(token, role) => login(token, role)} client={client} />
+        <> 
         <button onClick={ () => changeRegister(true)} >Register</button>
+        
+        <Login loggedIn={(token, role) => login(token, role)} client={client} />
+
+      
         </>
         )
         

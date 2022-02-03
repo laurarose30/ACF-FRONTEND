@@ -1,49 +1,50 @@
+
+
+
+
 html {
   font-family: "NeoSansProRegular.OTF";
-  
+ 
 }
-
-.logo{
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-
 
 .log-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: left;
+  background-image: url(pr633111.jpg);
+  background-repeat: no-repeat;
+
+  
+
 }
+
 .log-inner {
-  width: 450px;
+  width: 250px;
   margin: auto;
   background-color: hsl(120, 17%, 53%);
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 40px 55px 45px 55px;
+  padding: 50px 55px 45px 55px;
   border-radius: 15px;
+  margin-top: 290px;
+  margin-left: 80px;
 }
+
 
 .register{
-  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 250px;
   margin: auto;
-  background-color: rgba(34, 35, 58, 0.2);
+  background-color: hsl(120, 17%, 53%);
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 40px 55px 45px 55px;
+  padding: 50px 55px 45px 55px;
   border-radius: 15px;
-  align-items: center;
- 
+  margin-top: 290px;
+  margin-left: 80px;
 }
 
-
-.log {
-  
-  background-repeat: no-repeat;
-  background-position: 0%;
-  margin-top: 0%;
-  height: 100%;
-}
 
 .dash {
   width: 95%;
@@ -78,7 +79,7 @@ table {
   align-items: center;
   border-radius: 15px;
   font-size: 17px;
-  text-decoration: underline;
+  
 }
 form{
   border-radius: 15px;
@@ -90,6 +91,8 @@ form{
   justify-content: end;
 }
 
+
+
 th {
   border-bottom: 1px solid rgb(0, 0, 0);
 }
@@ -98,8 +101,6 @@ tr:nth-child(even) {
   background-color: rgb(161, 197, 161);
   color: rgb(0, 0, 0);
 }
-
-
 
 button {
   border: 0;
@@ -144,26 +145,44 @@ Button{
   
 }
 
-#navlogo{
- background-image: url(./logo/logoarmy.png);
- 
-}
-.title{
-  text-align: center;
-  
-
-}
 #nav{
   background-color: #262b27;
   height: 132.5px;
-  padding-top: 0px;
+  padding-top: 10px;
   width: 100%;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  color: white;
+  
   
 }
+
+#acf{
+  padding-top: px;
+  align-items: center;
+  margin: 0;
+  color: white;
+ 
+
+}
+
+
+
+#navbutton{
+  margin:0;
+  margin-top: 35px;
+}
+
+.logo{
+  position: absolute;
+  
+ 
+}
+
+
+
+
+
 #name{
   width: 100%;
   flex-direction: row;
@@ -173,6 +192,24 @@ Button{
  float: right;
  margin-right: 5px;
  
+ 
 }
+
+#title {
+ font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

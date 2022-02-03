@@ -80,8 +80,9 @@ function Add(props) {
      <br/>
      Subject:<br/>
      
-        <textarea
+        <input className="e-input-group"
           type="text"
+          required={true}
           defaultValue={props.currentLesson?.subject.join('\n')}
           name="subject"
           disabled={disabled}
