@@ -80,18 +80,16 @@ const errorMessage = () => {
 };
 
 return (
-	<div className="register">
-	<div>
-		<h3>User Registration</h3>
-	</div>
-
+	<div className="registerbackground">
+	<h3>User Registration</h3>
 	{/* Calling to the methods */}
 	<div className="messages">
 		{errorMessage()}
 		{successMessage()}
 	</div>
 
-	<form>
+	<form className="register" >
+		
 		{/* Labels and inputs for form data */}
 		<label className="label">Name</label> 
 		<br/>

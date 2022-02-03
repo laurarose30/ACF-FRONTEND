@@ -30,9 +30,13 @@ html {
   margin-left: 80px;
 }
 
-
+.registerbackground{
+  background-image: url(pr624652.jpg);
+  background-repeat: no-repeat;
+  color: white;
+}
 .register{
-
+  
   width: 250px;
   margin: auto;
   background-color: hsl(120, 17%, 53%);
