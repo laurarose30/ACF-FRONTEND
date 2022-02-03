@@ -5,7 +5,7 @@ import hasPermission from "./permissions.js";
 import "./Style.css";
 import Moment from "react-moment";
 import Find from "./Find";
-import {Nav, Navbar, Button, NavbarBrand } from "react-bootstrap";
+import { Nav, Navbar, Button, NavbarBrand } from "react-bootstrap";
 import logo from "./logo/logoarmy.png";
 
 function Dashboard(props) {
@@ -16,9 +16,8 @@ function Dashboard(props) {
   const [show2, setShow2] = useState(false);
   const [levelFilter, setLevelFilter] = useState("");
   const [getFilteredLessons, setFilteredLessons] = useState([]);
-  
-  const levels = ["basic", "one star", "two star", "three star"];
 
+  const levels = ["basic", "one star", "two star", "three star"];
 
   //given data will filter by the levelFilter
   const filterDataByLevel = (data) => {
@@ -30,7 +29,6 @@ function Dashboard(props) {
     return data;
   };
 
-
   //this function fires every time levelFilter changes
   useEffect(() => {
     let filteredLessons = filterDataByLevel(Lesson);
@@ -41,27 +39,25 @@ function Dashboard(props) {
     {
       id: "Date",
     },
-  
+
     {
       id: "Lesson",
     },
- 
+
     {
       id: "Level",
     },
-    {                                    
+    {
       id: "Equipment",
     },
     {
       id: "Dress",
-    }, 
-    {
-      id:"Instructor",
     },
-    
+    {
+      id: "Instructor",
+    },
   ];
 
-  
   const renderLevelOptions = () => ["all", ...levels];
 
   const renderDropdown = (currentVal, changeFunc, options) => {
@@ -79,7 +75,7 @@ function Dashboard(props) {
       cLesson(response.data);
       let filteredLessons = filterDataByLevel(response.data);
       setFilteredLessons(filteredLessons);
-      console.log(filteredLessons)
+      console.log(filteredLessons);
     });
   };
 
@@ -104,40 +100,30 @@ function Dashboard(props) {
       .findLesson(searchParams)
       .then((response) => changeSearch(response.data));
   };
- 
-  
+
   //The first tiem the page is loaded the list of lessons is refereshed
   useEffect(() => {
     refreshList();
   }, []);
 
-  
-
-  
-  
-
   const buildrows = () => {
     return getFilteredLessons.map((current) => {
-     
       return (
         <tr key={current._id}>
           <td>
             <Moment format="DD-MM-yyyy">{current.date}</Moment>
           </td>
           <td>
-     {current.lesson.map((session) => { return (
-     <div>
-       {session}
-       
-    </div>)})}
-  
- </td>
+            {current.lesson.map((session) => {
+              return <div>{session}</div>;
+            })}
+          </td>
 
           <td>{current.level}</td>
-           <td>{current.equipment}</td>
+          <td>{current.equipment}</td>
           <td>{current.dress}</td>
-           <td>{current.instructor}</td>
-           
+          <td>{current.instructor}</td>
+
           <td>
             {hasPermission(props.client.role, action.removeLesson) && (
               <button onClick={() => removeLesson(current._id)}> remove</button>
@@ -164,38 +150,25 @@ function Dashboard(props) {
           <td>{current.equipment}</td>
           <td>{current.dress}</td>
           <td>{current.instructor}</td>
-         
-          
         </tr>
       );
     });
   };
 
-
-  
   return (
     <>
+      <Nav>
+        <Navbar id="nav">
+          <div className="logo">
+            <img src={logo} alt="event blogger" height="40" />
+            <div className="title">ACF Training</div>
+          </div>
 
-    <Nav>
-        
-         
-          <Navbar id="nav">
-         <div className="logo" >
-          <img
-          src={logo}
-          alt="event blogger"
-          height="40"
-        />  
-        <div className="title">
-         ACF Training
-         </div>
-         </div>
-          
-           <Button id="logout" onClick={props.logout}>Logout</Button>
-              
-           </Navbar>
-          
-   </Nav>
+          <Button id="logout" onClick={props.logout}>
+            Logout
+          </Button>
+        </Navbar>
+      </Nav>
 
       <style>{`
    table{
@@ -205,36 +178,32 @@ function Dashboard(props) {
         }
   `}</style>
       <div id="buttonlogout">
-        
-      
         <br />
       </div>
 
-        <div class ="dash">
+      <div class="dash">
+        <table>
+          <thead>
+            <tr>
+              {headerOptions.map((header) => (
+                <th className={props.headerSection}>
+                  {header.id}
+                  {header.filterOptions && <div>{header.filterOptions()}</div>}
+                </th>
+              ))}
 
-      <table>
-        <thead>
-          <tr>
-            {headerOptions.map((header) => (
-              <th className={props.headerSection}>
-                {header.id}
-                {header.filterOptions && <div>{header.filterOptions()}</div>}
-              </th>
-            ))}
-
-            <select onChange={ (e) => setLevelFilter(e.target.value)}>
-              <option value="all">All stars</option>
-              <option value="basic">basic</option>
-              <option value="one star">one star</option>
-              <option value="two star">two star</option>
-              <option value="three star">three star</option>
-
-            </select>
-          </tr>
-        </thead>
-        <tbody>{buildrows()}</tbody>
-      </table> 
-      </div>  
+              <select onChange={(e) => setLevelFilter(e.target.value)}>
+                <option value="all">All stars</option>
+                <option value="basic">basic</option>
+                <option value="one star">one star</option>
+                <option value="two star">two star</option>
+                <option value="three star">three star</option>
+              </select>
+            </tr>
+          </thead>
+          <tbody>{buildrows()}</tbody>
+        </table>
+      </div>
       <br />
       <br />
       {hasPermission(props.client.role, action.addLesson) && (
@@ -269,9 +238,7 @@ function Dashboard(props) {
           <tbody>{buildsearchrows()}</tbody>
         </table>
       </div>
-      <>
-      
-</>
+      <></>
       <Find
         client={props.client}
         refreshListFind={refreshListFind}
@@ -292,6 +259,4 @@ function Dashboard(props) {
   );
 }
 
-
- 
 export default Dashboard;
