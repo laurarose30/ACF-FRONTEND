@@ -59,6 +59,7 @@ function Add(props) {
    form{
     color: #ffffff; 
     background-color: hsl(120, 17%, 53%); 
+
    
     padding: 1%
     margin:0
@@ -68,7 +69,7 @@ function Add(props) {
     
 
 
-   <div className="dash">
+   <div className="dash" id="dashpic">
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
         Date:<br/>
         <input

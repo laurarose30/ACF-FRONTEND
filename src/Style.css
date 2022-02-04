@@ -1,10 +1,6 @@
-
-
-
-
 html {
   font-family: "NeoSansProRegular.OTF";
- 
+  background-color: #262b27;
 }
 
 .log-wrapper {
@@ -14,8 +10,8 @@ html {
   text-align: left;
   background-image: url(pr633111.jpg);
   background-repeat: no-repeat;
-
-  
+  background-size: cover;
+  background-attachment: fixed;
 
 }
 
@@ -33,6 +29,8 @@ html {
 .registerbackground{
   background-image: url(pr624652.jpg);
   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
  
 }
 .register{
@@ -56,6 +54,15 @@ html {
   flex-direction: column;
   text-align: left;
   font-size: 15px;
+}
+
+
+
+#dashpic{
+  background-image: url(pr624931.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (max-width:300px) {
@@ -96,8 +103,6 @@ form{
   display: flex;
   justify-content: end;
 }
-
-
 
 th {
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -148,9 +153,12 @@ Button{
   font-size: 12px;
  align-items: flex-end;
   
-  
 }
-
+#heading{
+  color: white;
+  font-size: large;
+  margin-left: 2.5%;
+}
 #nav{
   background-color: #262b27;
   height: 132.5px;
@@ -159,35 +167,26 @@ Button{
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  
-  
+
 }
 
 #acf{
-  padding-top: px;
+
   align-items: center;
   margin: 0;
   color: white;
  
-
 }
 
-
-
 #navbutton{
+  display:inline;
   margin:0;
   margin-top: 35px;
 }
-
 .logo{
   position: absolute;
   
- 
 }
-
-
-
-
 
 #name{
   width: 100%;
@@ -204,18 +203,3 @@ Button{
 #title {
  font-size: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

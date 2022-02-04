@@ -31,7 +31,7 @@ function Find(props) {
     <>
       <Container className="mx-auto formContainer">
         <br/>
-        Search Lessons:
+        <p id="heading"> Search Lessons</p>
         <br/>
         <br />
         <style>{`

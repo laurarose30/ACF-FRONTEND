@@ -40,7 +40,7 @@ function Dashboard(props) {
       id: "Date",
     },
     {
-      id: "subject",
+      id: "Subject",
     },
     {
       id: "Lesson",
@@ -176,12 +176,13 @@ function Dashboard(props) {
 
   return (
     <>
+    <div id="dashpic"> 
       <Nav id="nav">
       
-        <Navbar>
+        <Navbar fixed="top">
 
           <div className="logo">
-            <img src={logo} alt="event blogger" height="60" />
+            <img src={logo} alt="army" height="60" />
           </div>  
 
             <div id="acf">
@@ -282,7 +283,7 @@ function Dashboard(props) {
         onClick={() => querySearch({ dateMax: new Date(0) })}
       >
         Clear Filtered List
-      </button>
+      </button></div>
     </>
   );
 }
