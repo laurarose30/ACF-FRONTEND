@@ -1,10 +1,6 @@
-
-
-
-
 html {
   font-family: "NeoSansProRegular.OTF";
- 
+  background-color: #262b27;
 }
 
 .log-wrapper {
@@ -14,15 +10,15 @@ html {
   text-align: left;
   background-image: url(pr633111.jpg);
   background-repeat: no-repeat;
-
-  
+  background-size: cover;
+  background-attachment: fixed;
 
 }
 
 .log-inner {
   width: 250px;
   margin: auto;
-  background-color: hsl(120, 17%, 53%);
+  background-color: #738f8098;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 30px 35px 35px 55px;
   border-radius: 15px;
@@ -33,13 +29,15 @@ html {
 .registerbackground{
   background-image: url(pr624652.jpg);
   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
  
 }
 .register{
   
   width: 250px;
   margin: auto;
-  background-color: hsl(120, 17%, 53%);
+  background-color: #738f8096;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 30px 35px 35px 55px;
   border-radius: 15px;
@@ -56,6 +54,19 @@ html {
   flex-direction: column;
   text-align: left;
   font-size: 15px;
+}
+
+
+
+#dashpic{
+  background-image: url(pr624931.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.AddL{
+  color: white;
+  margin-left: 2.5%;
 }
 
 @media screen and (max-width:300px) {
@@ -76,7 +87,7 @@ p{
 }
 
 table {
-  background-color: hsl(120, 17%, 53%);
+  background-color: #738f8096;
   color: rgb(253, 253, 253);
   text-align: left;
   border-spacing: 10px;
@@ -85,6 +96,7 @@ table {
   align-items: center;
   border-radius: 15px;
   font-size: 17px;
+  backdrop-filter: blur(10px);
   
 }
 form{
@@ -97,14 +109,12 @@ form{
   justify-content: end;
 }
 
-
-
 th {
   border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 tr:nth-child(even) {
-  background-color: rgb(161, 197, 161);
+  background-color: #98b6a6;;
   color: rgb(0, 0, 0);
 }
 
@@ -148,9 +158,12 @@ Button{
   font-size: 12px;
  align-items: flex-end;
   
-  
 }
-
+#heading{
+  color: white;
+  font-size: large;
+  margin-left: 2.5%;
+}
 #nav{
   background-color: #262b27;
   height: 132.5px;
@@ -159,35 +172,26 @@ Button{
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  
-  
+
 }
 
 #acf{
-  padding-top: px;
+
   align-items: center;
   margin: 0;
   color: white;
  
-
 }
 
-
-
 #navbutton{
+  display:inline;
   margin:0;
   margin-top: 35px;
 }
-
 .logo{
   position: absolute;
   
- 
 }
-
-
-
-
 
 #name{
   width: 100%;
@@ -204,18 +208,3 @@ Button{
 #title {
  font-size: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -31,13 +31,13 @@ function Find(props) {
     <>
       <Container className="mx-auto formContainer">
         <br/>
-        Search Lessons:
+        <p id="heading"> Search Lessons</p>
         <br/>
         <br />
         <style>{`
    .form2{
     color: #ffffff; 
-    background-color: hsl(120, 17%, 53%); 
+    background-color: #738f80; 
    
     padding: 1%
     margin:0

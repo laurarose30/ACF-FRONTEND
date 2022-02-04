@@ -52,13 +52,14 @@ function Add(props) {
 
   return (
     <>
-      {props.currentLesson ? "Update" : "Add Lesson"}
+      {props.currentLesson ? <div className="AddL">Update</div> : <div className="AddL">Add Lesson</div>}
       <br />
       <br />
       <style>{`
    form{
     color: #ffffff; 
-    background-color: hsl(120, 17%, 53%); 
+    background-color: #738f80; 
+    backdrop-filter: blur(10px);
    
     padding: 1%
     margin:0
@@ -68,7 +69,7 @@ function Add(props) {
     
 
 
-   <div className="dash">
+   <div className="dash" id="dashpic">
       <form onSubmit={(e) => submitHandler(e)} id="addForm">
         Date:<br/>
         <input
