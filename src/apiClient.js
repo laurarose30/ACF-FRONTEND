@@ -1,6 +1,6 @@
 import axios from "axios";
 import {action, role} from "./permissions"
-const url = "https://git.heroku.com/acf-training.git";
+const url = "https://acf-training.herokuapp.com/";
 
 export class ApiClient {
   constructor(tokenProvider,newRole, logoutHandler){
