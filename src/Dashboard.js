@@ -161,7 +161,7 @@ function Dashboard(props) {
       return (
         <tr key={current._id}>
           <td>
-            <Moment format="DD-MM-yyyy">{current.date}</Moment>
+            <Moment format="yyyy-MM-DD">{current.date}</Moment>
           </td>
           <td>{current.subject}</td>
           <td>{current.lesson}</td>
